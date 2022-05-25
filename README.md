@@ -25,21 +25,21 @@ This style guide is mostly based on the standards that are currently prevalent i
 ## Extension
 
   - Must Have: 
-    1. Prettier 
-    2. Code Spell Checker
+    - Prettier 
+    - Code Spell Checker
 
   - Nice To Have: 
-    1. ES7 + React/Redux/React-Native snippets
+    - ES7 + React/Redux/React-Native snippets
     
  ## ESlints
 
   - Must Have: 
-    1. Eslint. -  Airbnb
+    - Eslint. -  Airbnb
     ```jsx 
     npm install eslint —-save-dev 
     npm install eslint-config-airbnb —-save-dev
     ```
-    2. Code Spell Checker
+    - Code Spell Checker
 
   - Nice To Have: 
     1. ES7 + React/Redux/React-Native snippets
