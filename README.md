@@ -36,10 +36,22 @@ This style guide is mostly based on the standards that are currently prevalent i
   - Must Have: 
     - Eslint. -  Airbnb
     ```jsx 
-     npm i -D eslint prettier eslint-plugin-prettier eslint-config-prettier eslint-plugin-node eslint-config-node
+     npm i -D eslint prettier eslint-config-airbnb eslint-plugin-prettier eslint-config-prettier eslint-plugin-node eslint-config-node
     ```
      ```jsx 
-    npm install eslint-config-airbnb —-save-dev
+    {
+      "extends": ["airbnb", "prettier", "plugin:node/recommended"],
+      "plugins": ["prettier"],
+      "rules": {
+        "prettier/prettier": "error",
+        "no-unused-vars": "warn",
+        "no-console": "off",
+        "func-names": "off",
+        "no-process-exit": "off",
+        "object-shorthand": "off",
+        "class-methods-use-this": "off"
+      }
+    }
     ```
     - Code Spell Checker
 
