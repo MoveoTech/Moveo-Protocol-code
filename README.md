@@ -1,4 +1,4 @@
-# Airbnb React/JSX Style Guide
+# Moveo Protocol Code - React
 
 *A mostly reasonable approach to React and JSX*
 
@@ -22,7 +22,7 @@ This style guide is mostly based on the standards that are currently prevalent i
   1. [Ordering](#ordering)
   1. [`isMounted`](#ismounted)
 
-## Extension
+## 1.Extension
 
   - Must Have: 
     1. Prettier 
