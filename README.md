@@ -36,7 +36,7 @@ This style guide is mostly based on the standards that are currently prevalent i
   - Must Have: 
     - Eslint. -  Airbnb
     ```jsx 
-    npm install eslint —-save-dev 
+     npm i -D eslint prettier eslint-plugin-prettier eslint-config-prettier eslint-plugin-node eslint-config-node
     ```
      ```jsx 
     npm install eslint-config-airbnb —-save-dev
