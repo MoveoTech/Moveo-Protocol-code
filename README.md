@@ -37,6 +37,8 @@ This style guide is mostly based on the standards that are currently prevalent i
     - Eslint. -  Airbnb
     ```jsx 
     npm install eslint —-save-dev 
+    ```
+     ```jsx 
     npm install eslint-config-airbnb —-save-dev
     ```
     - Code Spell Checker
