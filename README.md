@@ -30,6 +30,19 @@ This style guide is mostly based on the standards that are currently prevalent i
 
   - Nice To Have: 
     1. ES7 + React/Redux/React-Native snippets
+    
+ ## ESlints
+
+  - Must Have: 
+    1. Eslint. -  Airbnb
+    ```jsx 
+    npm install eslint —-save-dev 
+    npm install eslint-config-airbnb —-save-dev
+    ```
+    2. Code Spell Checker
+
+  - Nice To Have: 
+    1. ES7 + React/Redux/React-Native snippets
 
 ## Class vs `React.createClass` vs stateless
 
