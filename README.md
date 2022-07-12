@@ -8,7 +8,7 @@ This style guide is mostly based on the standards that are currently prevalent i
 
   1. [Extension](#extension)
   1. [ESlints](#eslints)
-  1. [Mixins](#mixins)
+  1. [Project Structure](#prtoject_structure)
   1. [Naming](#naming)
   1. [Declaration](#declaration)
   1. [Alignment](#alignment)
@@ -58,7 +58,7 @@ This style guide is mostly based on the standards that are currently prevalent i
   - Nice To Have: 
     1. ES7 + React/Redux/React-Native snippets
 
-## Class vs `React.createClass` vs stateless
+## Project Structure
 
   - If you have internal state and/or refs, prefer `class extends React.Component` over `React.createClass`. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
 
