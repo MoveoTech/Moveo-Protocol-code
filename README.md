@@ -9,7 +9,7 @@ This style guide is mostly based on the standards that are currently prevalent i
   1. [Extension](#extension)
   1. [ESlints](#eslints)
   1. [Project Structure](#project-structure)
-  1. [Naming](#naming)
+  1. [Name Convention](#naming)
   1. [Declaration](#declaration)
   1. [Alignment](#alignment)
   1. [Quotes](#quotes)
