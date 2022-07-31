@@ -104,7 +104,7 @@ This style guide is mostly based on the standards that are currently prevalent i
     ```
 
 
-## Naming
+## Name Convention
 
   - **Extensions**: Use `.jsx` extension for React components. eslint: [`react/jsx-filename-extension`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md)
   - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.jsx`.
