@@ -9,6 +9,8 @@ This style guide is mostly based on the standards that are currently prevalent i
   1. [Extension](#extension)
   1. [ESlints](#eslints)
   1. [Project Structure](#project-structure)
+  1. [Component Structure](#component-structure)
+  1. [File Structure](#file-structure)
   1. [Name Convention](#name-convention)
   1. [Declaration](#declaration)
   1. [Alignment](#alignment)
@@ -79,47 +81,25 @@ This style guide is mostly based on the standards that are currently prevalent i
      - Validators (example: url validtors)
      - hooks -  (example: every 'x' time do 'y')
   
+## Component Structure
 
-![](images/image.png)
+   - components 
+     - unique components 
+   - logic
+     - unique components  
+   - index
+   - componentName
+   - styles  
 
-    ```jsx
-    // bad
-    const Listing = React.createClass({
-      // ...
-      render() {
-        return <div>{this.state.hello}</div>;
-      }
-    });
+## File Structure
 
-    // good
-    class Listing extends React.Component {
-      // ...
-      render() {
-        return <div>{this.state.hello}</div>;
-      }
-    }
-    ```
-
-    And if you don’t have state or refs, prefer normal functions (not arrow functions) over classes:
-
-    ```jsx
-    // bad
-    class Listing extends React.Component {
-      render() {
-        return <div>{this.props.hello}</div>;
-      }
-    }
-
-    // bad (relying on function name inference is discouraged)
-    const Listing = ({ hello }) => (
-      <div>{hello}</div>
-    );
-
-    // good
-    function Listing({ hello }) {
-      return <div>{hello}</div>;
-    }
-    ```
+   - components 
+     - unique components 
+   - logic
+     - unique components  
+   - index
+   - componentName
+   - styles      
 
 
 ## Name Convention
