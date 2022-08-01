@@ -10,14 +10,14 @@ This style guide is mostly based on the standards that are currently prevalent i
   1. [ESlints](#eslints)
   1. [Project Structure](#project-structure)
   1. [Component Structure](#component-structure)
-  1. [File Structure](#file-structure)
-  1. [Name Convention](#name-convention)
-  1. [Loading Indiaction](#loading_indiaction)
-  1. [Error Handler](#error_handler)
-  1. [Quotes](#quotes)
-  1. [Generic](#generic)
-  1. [Tags](#tags)
-  1. [Methods](#methods)
+  1. [File Structure](#js-file-structure)
+  5. [Name Convention](#name-convention)
+  6. [Loading Indiaction](#loading_indiaction)
+  7. [Error Handler](#error_handler)
+  8. [Quotes](#quotes)
+  9. [Generic](#generic)
+  10. [Tags](#tags)
+  11. [Methods](#methods)
 
 ## Extension
 
@@ -86,7 +86,7 @@ This style guide is mostly based on the standards that are currently prevalent i
    - componentName
    - styles  
 
-## File Structure
+## JS File Structure
 - import format 
    - split between package import and internal import 
    - package import always been first
@@ -213,6 +213,7 @@ examples:
     import Footer from './Footer';
     ```
 
+## Loading Indiaction
 
 ## Quotes
 
