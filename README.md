@@ -60,8 +60,19 @@ This style guide is mostly based on the standards that are currently prevalent i
 
 ## Project Structure
 
-  - asset
- - shared  (shared generic functions and components) :
+   - asset
+    - images 
+    - icons
+    - audios 
+   - services - REST API
+    - axios 
+    - google map
+    - facebook
+   - pages
+   - redux  toolkit
+    - slices
+    - store
+   - shared  (shared generic functions and components) :
     - constants  ( COLOR , SIZES , FONTS, IMAGES, AUDIOS, ICONS,  DATA)
     - utils (example: calculate items)
     - components (example: cards,buttons)
