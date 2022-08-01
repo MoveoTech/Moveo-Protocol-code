@@ -60,12 +60,12 @@ This style guide is mostly based on the standards that are currently prevalent i
 
 ## Project Structure
 
-  - shared - shared generic functions and components:
-    -constants  ( COLOR , SIZES , FONTS, IMAGES, AUDIOS, ICONS,  DATA)
-    -utils (example: calculate items)
-    -components (example: cards,buttons)
-    -Validators (example: url validtors)
-    -hooks -  (example: every 'x' time do 'y')
+  - shared  (shared generic functions and components) :
+    - constants  ( COLOR , SIZES , FONTS, IMAGES, AUDIOS, ICONS,  DATA)
+    - utils (example: calculate items)
+    - components (example: cards,buttons)
+    - Validators (example: url validtors)
+    - hooks -  (example: every 'x' time do 'y')
 
 ![](images/image.png)
 
