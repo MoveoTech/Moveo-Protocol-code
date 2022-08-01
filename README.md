@@ -92,7 +92,7 @@ This style guide is mostly based on the standards that are currently prevalent i
    - styles  
 
 ## File Structure
--import format 
+- import format 
    - split between package import and internal import 
    - package import always been first
    - start from line 1
