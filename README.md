@@ -60,7 +60,12 @@ This style guide is mostly based on the standards that are currently prevalent i
 
 ## Project Structure
 
-  - If you have internal state and/or refs, prefer `class extends React.Component` over `React.createClass`. eslint: [`react/prefer-es6-class`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-es6-class.md) [`react/prefer-stateless-function`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md)
+  - shared - shared generic functions and components 
+    -constants  ( COLOR , SIZES , FONTS, IMAGES, AUDIOS, ICONS,  DATA)
+    -utils (example: calculate items)
+    -components (example: cards,buttons)
+    -Validators (example: url validtors)
+    -hooks -  (example: every 'x' time do 'y')
 
 ![](images/image.png)
 
