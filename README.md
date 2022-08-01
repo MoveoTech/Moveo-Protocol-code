@@ -161,17 +161,24 @@ This style guide is mostly based on the standards that are currently prevalent i
 Case types : 
  - **camelCase** 
  - **PascalCase** - first letter of each appended word must be uppercased include the first word
- - **UPPER_CASE**
+ - **UPPER_SNAKE_CASE**
+ - **snake_case**
 
 type list:
  - Compnent - Pascal case
  - Functions - Camel case
  - Variables - Camel case
  - Props - Camel case
- - enum - UPPER_CASE
- - constants - UPPER_CASE
+ - enum - UPPER_SNAKE_CASE
+ - constants - UPPER_SNAKE_CASE
+ - files - snake_case
 
 
+
+
+
+Format of names list: 
+- boolean - isName - Camel case
 
 Files name -  Pascal case (first letter of each appended word must be uppercased include the first word)
 Files name -  Pascal case (first letter of each appended word must be uppercased include the first word)
