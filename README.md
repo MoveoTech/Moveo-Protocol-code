@@ -127,25 +127,29 @@ This style guide is mostly based on the standards that are currently prevalent i
  ```jsx
       // bad - incorrect sort + breaklines
      const [loading, setLoading] = useState(false);
-     const getDataFromApi= () = (()=>{})
-     useEffect(() => {},[])
+     const getDataFromApi= (loading) =>{return loading};
+     const [actionCounter, setActionCounter] = useState(0);
+
+     useEffect(() => {},[actionCounter])
      return (<Container> </Container>)
     
       // bad -  breaklines
      const [loading, setLoading] = useState(false);
-     
-     useEffect(() => {},[])
+     const [actionCounter, setActionCounter] = useState(0);
 
-     const getDataFromApi= () = (()=>{})
+     useEffect(() => {},[actionCounter])
+
+     const getDataFromApi= (loading) =>{return loading};
      return (<Container> </Container>)
     
     
        // good
      const [loading, setLoading] = useState(false);
-     
-     useEffect(() => {},[])
+     const [actionCounter, setActionCounter] = useState(0);
 
-     const getDataFromApi= () = (()=>{})
+     useEffect(() => {},[actionCounter])
+
+     const getDataFromApi= (loading) =>{return loading};
     
      return (<Container> </Container>)
     
