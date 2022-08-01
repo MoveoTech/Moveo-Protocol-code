@@ -185,15 +185,6 @@ type list:
 Format of names list: 
 - boolean - isName - Camel case
 
-Files name -  Pascal case (first letter of each appended word must be uppercased include the first word)
-Files name -  Pascal case (first letter of each appended word must be uppercased include the first word)
-Functions - Camel case (start with lowercase)
-Variables - Camel case. Declare with const (unless it is necessary to declare with let and it is not a global component variable, like hooks variables).
-Props - Camel case
-The return of the component: 
-First tag name (in styled component or className for regular css) will be as follow: <ComponentName>Container/Layout
-All tags must be unique (contain component name or related info)
-For unity styled component tags and className should be both Pascal case 
 
 
   - **Extensions**: Use `.jsx` extension for React components. eslint: [`react/jsx-filename-extension`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md)
