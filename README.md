@@ -108,7 +108,7 @@ This style guide is mostly based on the standards that are currently prevalent i
     import RoutePaths from "../../shared/enums/RoutePaths";
     
     
-      // good
+      // best practice
     import { useHistory } from "react-router-dom"
     
     import ReservationCard from './ReservationCard';
@@ -143,7 +143,7 @@ This style guide is mostly based on the standards that are currently prevalent i
      return (<Container> </Container>)
     
     
-       // good
+       // best practice
      const [loading, setLoading] = useState(false);
      const [actionCounter, setActionCounter] = useState(0);
 
