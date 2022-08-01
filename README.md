@@ -86,20 +86,36 @@ This style guide is mostly based on the standards that are currently prevalent i
    - components 
      - unique components 
    - logic
-     - unique components  
+     - unique functions  
    - index
    - componentName
    - styles  
 
 ## File Structure
+-import format 
+ split between package import and internal import 
+ **package import always been first
+ **start from line 1
+ ```jsx
+    // bad
+    import ReservationCard from './ReservationCard';
+    import { useHistory } from "react-router-dom";
+    import RoutePaths from "../../shared/enums/RoutePaths";
+    
+      // bad
+    import { useHistory } from "react-router-dom";
+    import ReservationCard from './ReservationCard';
+    import RoutePaths from "../../shared/enums/RoutePaths";
+    
+    
+    // good
+    import { useHistory } from "react-router-dom"
+    
+    import ReservationCard from './ReservationCard';
+    import RoutePaths from "../../shared/enums/RoutePaths";
+    
 
-   - components 
-     - unique components 
-   - logic
-     - unique components  
-   - index
-   - componentName
-   - styles      
+    ```
 
 
 ## Name Convention
