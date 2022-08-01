@@ -97,10 +97,39 @@ This style guide is mostly based on the standards that are currently prevalent i
    - package import always been first
    - start from line 1
  ```jsx
-      // bad
+      // bad - incorrect sort
     import ReservationCard from './ReservationCard';
     import { useHistory } from "react-router-dom";
     import RoutePaths from "../../shared/enums/RoutePaths";
+    
+      // bad - break line is must between import type
+    import { useHistory } from "react-router-dom";
+    import ReservationCard from './ReservationCard';
+    import RoutePaths from "../../shared/enums/RoutePaths";
+    
+    
+      // good
+    import { useHistory } from "react-router-dom"
+    
+    import ReservationCard from './ReservationCard';
+    import RoutePaths from "../../shared/enums/RoutePaths";
+    
+
+   ```
+-  Component/Function sortBy format 
+   - const
+   - let
+   - hooks
+   - funcs
+   - return
+   
+   
+ ```jsx
+      // bad
+     const [loading, setLoading] = useState(false);
+     const getDataFromApi= () = (()=>{})
+     useEffect(() => {},[])
+     return (<Container> </Container>)
     
       // bad
     import { useHistory } from "react-router-dom";
@@ -116,7 +145,6 @@ This style guide is mostly based on the standards that are currently prevalent i
     
 
    ```
-
 
 ## Name Convention
 
