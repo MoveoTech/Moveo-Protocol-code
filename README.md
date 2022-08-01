@@ -117,11 +117,11 @@ This style guide is mostly based on the standards that are currently prevalent i
 
    ```
 -  Component/Function sortBy format 
-   - const
-   - let
-   - hooks
-   - funcs
-   - return
+   1. const
+   2. let
+   3. hooks
+   4. funcs
+   5. return
    
    
  ```jsx
