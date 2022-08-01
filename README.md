@@ -10,7 +10,7 @@ This style guide is mostly based on the standards that are currently prevalent i
   1. [ESlints](#eslints)
   1. [Project Structure](#project-structure)
   1. [Component Structure](#component-structure)
-  1. [File Structure](#js-file-structure)
+  1. [JS File Structure](#js-file-structure)
   5. [Name Convention](#name-convention)
   6. [Loading Indiaction](#loading-indiaction)
   7. [Error Handler](#error-handler)
