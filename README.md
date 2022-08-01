@@ -93,9 +93,9 @@ This style guide is mostly based on the standards that are currently prevalent i
 
 ## File Structure
 -import format 
- split between package import and internal import 
- **package import always been first
- **start from line 1
+   - split between package import and internal import 
+   - package import always been first
+   - start from line 1
  ```jsx
       // bad
     import ReservationCard from './ReservationCard';
