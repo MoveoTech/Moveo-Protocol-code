@@ -97,7 +97,7 @@ This style guide is mostly based on the standards that are currently prevalent i
  **package import always been first
  **start from line 1
  ```jsx
-    // bad
+      // bad
     import ReservationCard from './ReservationCard';
     import { useHistory } from "react-router-dom";
     import RoutePaths from "../../shared/enums/RoutePaths";
@@ -108,7 +108,7 @@ This style guide is mostly based on the standards that are currently prevalent i
     import RoutePaths from "../../shared/enums/RoutePaths";
     
     
-    // good
+      // good
     import { useHistory } from "react-router-dom"
     
     import ReservationCard from './ReservationCard';
