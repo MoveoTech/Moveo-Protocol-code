@@ -125,23 +125,29 @@ This style guide is mostly based on the standards that are currently prevalent i
    
    
  ```jsx
-      // bad
+      // bad - incorrect sort + breaklines
      const [loading, setLoading] = useState(false);
      const getDataFromApi= () = (()=>{})
      useEffect(() => {},[])
      return (<Container> </Container>)
     
-      // bad
-    import { useHistory } from "react-router-dom";
-    import ReservationCard from './ReservationCard';
-    import RoutePaths from "../../shared/enums/RoutePaths";
+      // bad -  breaklines
+     const [loading, setLoading] = useState(false);
+     
+     useEffect(() => {},[])
+
+     const getDataFromApi= () = (()=>{})
+     return (<Container> </Container>)
     
     
-      // good
-    import { useHistory } from "react-router-dom"
+       // good
+     const [loading, setLoading] = useState(false);
+     
+     useEffect(() => {},[])
+
+     const getDataFromApi= () = (()=>{})
     
-    import ReservationCard from './ReservationCard';
-    import RoutePaths from "../../shared/enums/RoutePaths";
+     return (<Container> </Container>)
     
 
    ```
