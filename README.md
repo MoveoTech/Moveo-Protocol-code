@@ -13,7 +13,7 @@ This style guide is mostly based on the standards that are currently prevalent i
   1. [File Structure](#js-file-structure)
   5. [Name Convention](#name-convention)
   6. [Loading Indiaction](#loading-indiaction)
-  7. [Error Handler](#error_handler)
+  7. [Error Handler](#error-handler)
   8. [Quotes](#quotes)
   9. [Generic](#generic)
   10. [Tags](#tags)
@@ -214,6 +214,8 @@ examples:
     ```
 
  ## Loading Indiaction
+   - usee 
+ ## Error Handler
    - usee 
 
 ## Quotes
