@@ -16,8 +16,6 @@ This style guide is mostly based on the standards that are currently prevalent i
   7. [Error Handler](#error-handler)
   8. [Quotes](#quotes)
   9. [Generic](#generic)
-  10. [Tags](#tags)
-  11. [Methods](#methods)
 
 ## Extension
 
@@ -240,7 +238,8 @@ examples:
 
 
 
-
+## Generic
+ -- hyyy
   - Avoid using an array index as `key` prop, prefer a stable ID. eslint: [`react/no-array-index-key`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-array-index-key.md)
 
 > Why? Not using a stable ID [is an anti-pattern](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318) because it can negatively impact performance and cause issues with component state.
