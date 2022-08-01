@@ -60,10 +60,10 @@ This style guide is mostly based on the standards that are currently prevalent i
 
 ## Project Structure
 
-   - asset
-    - images 
-    - icons
-    - audios 
+   - assets 
+     - images 
+     - icons
+     - audios 
    - services - REST API
     - axios 
     - google map
