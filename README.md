@@ -166,12 +166,17 @@ Case types :
 
 type list:
  - Compnent - Pascal case
+ - class - Pascal case
+ - 
  - Functions - Camel case
  - Variables - Camel case
  - Props - Camel case
+ - 
  - enum - UPPER_SNAKE_CASE
  - constants - UPPER_SNAKE_CASE
+ - 
  - files - snake_case
+ -  
 
 
 
