@@ -12,17 +12,12 @@ This style guide is mostly based on the standards that are currently prevalent i
   1. [Component Structure](#component-structure)
   1. [File Structure](#file-structure)
   1. [Name Convention](#name-convention)
-  1. [Declaration](#declaration)
-  1. [Alignment](#alignment)
+  1. [Loading Indiaction](#loading_indiaction)
+  1. [Error Handler](#error_handler)
   1. [Quotes](#quotes)
-  1. [Spacing](#spacing)
-  1. [Props](#props)
-  1. [Refs](#refs)
-  1. [Parentheses](#parentheses)
+  1. [Generic](#generic)
   1. [Tags](#tags)
   1. [Methods](#methods)
-  1. [Ordering](#ordering)
-  1. [`isMounted`](#ismounted)
 
 ## Extension
 
