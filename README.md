@@ -239,7 +239,63 @@ examples:
 
 
 ## Generic
- - Coming Soon
+ - Most of the functions anf components need to be generic. You always need to think if there is possible the use the function/component in another place, most of the cases it will be correct.
+
+examples:
+
+- Shared/components/Buttons --> BaseButton 
+```
+// stateless button
+const BaseButton = (props) => {
+
+  const { buttonTextStyle, buttonWidgetStyle, onChange, buttonText } = props;
+  
+  return (
+    <ButtonContainer onClick={onChange} style={buttonWidgetStyle}>
+      <ButtonText style={buttonTextStyle}>{buttonText}</ButtonText>
+    </ButtonContainer>
+  );
+};
+```
+
+
+- Shared/validators. --> urlValidor 
+```
+// check if the url is valid
+const isValidUrl = (urlString) => {
+
+  let urlPattern = new RegExp('^(https?:\\/\\/)?'+ // validate protocol
+  '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // validate domain name
+  '((\\d{1,3}\\.){3}\\d{1,3}))'+ // validate OR ip (v4) address
+  '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // validate port and path
+  '(\\?[;&a-z\\d%_.~+=-]*)?'+ // validate query string
+  '(\\#[-a-z\\d_]*)?$','i'); // validate fragment locator
+  
+return !!urlPattern.test(urlString);
+}
+```
+- Shared/hooks. --> useCarouselByIndexArr 
+
+```
+//  every 'x' time  fo something by dependency of index
+
+const useCarouselByIndexArr = (props) => {
+  const { delay, index, onChange } = props;
+
+  const timerRef = useRef(null);
+
+  useEffect(() => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+    timerRef.current = setInterval(() => {
+      onChange();
+    }, delay);
+
+    return () => clearInterval(timerRef.current);
+  }, [index]);
+};
+```
   - Avoid using an array index as `key` prop, prefer a stable ID. eslint: [`react/no-array-index-key`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-array-index-key.md)
 
 > Why? Not using a stable ID [is an anti-pattern](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318) because it can negatively impact performance and cause issues with component state.
