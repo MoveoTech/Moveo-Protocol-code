@@ -278,9 +278,10 @@ return !!urlPattern.test(urlString);
 
  ```jsx
 //  every 'x' time  fo something by dependency of index
+// The function will work as longest the dependency changes in onChange func
 
-const useCarouselByIndexArr = (props) => {
-  const { delay, index, onChange } = props;
+const useEveryTimeDoSomething = (props) => {
+  const { delay, dependency, onChange } = props;
 
   const timerRef = useRef(null);
 
@@ -289,11 +290,11 @@ const useCarouselByIndexArr = (props) => {
       clearInterval(timerRef.current);
     }
     timerRef.current = setInterval(() => {
-      onChange();
+      onChange(); 
     }, delay);
 
     return () => clearInterval(timerRef.current);
-  }, [index]);
+  }, [dependency]);
 };
 ```
   - Avoid using an array index as `key` prop, prefer a stable ID. eslint: [`react/no-array-index-key`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-array-index-key.md)
