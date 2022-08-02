@@ -244,7 +244,7 @@ examples:
 examples:
 
 - Shared/components/Buttons --> BaseButton 
-```
+ ```jsx
 // stateless button
 const BaseButton = (props) => {
 
@@ -260,7 +260,7 @@ const BaseButton = (props) => {
 
 
 - Shared/validators. --> urlValidor 
-```
+ ```jsx
 // check if the url is valid
 const isValidUrl = (urlString) => {
 
@@ -276,7 +276,7 @@ return !!urlPattern.test(urlString);
 ```
 - Shared/hooks. --> useCarouselByIndexArr 
 
-```
+ ```jsx
 //  every 'x' time  fo something by dependency of index
 
 const useCarouselByIndexArr = (props) => {
