@@ -1,325 +1,112 @@
-# Moveo Protocol Code - React
+# Moveo Protocol Code - TypeScript
 
-*A mostly reasonable approach to React and JSX*
+*There is not type like any*
 
 This style guide is mostly based on the standards that are currently prevalent in JavaScript, although some conventions (i.e async/await or static class fields) may still be included or prohibited on a case-by-case basis. Currently, anything prior to stage 3 is not included nor recommended in this guide.
 
 ## Table of Contents
 
-  1. [Extension](#extension)
-  1. [ESlints](#eslints)
-  1. [Project Structure](#project-structure)
-  1. [Component Structure](#component-structure)
-  1. [JS File Structure](#js-file-structure)
-  5. [Name Convention](#name-convention)
+  1. [General Types](#general-types)
+  1. [Generics](#generics)
+  1. [any](#any)
+  1. [Return Types of Callbacks](#return-types-of-callbacks)
+  1. [Optional Parameters in Callbacks](#optional-parameters-in-callbacks)
+  5. [Use Union Types](#use-union-types)
   6. [Loading Indiaction](#loading-indiaction)
   7. [Error Handler](#error-handler)
   8. [Quotes](#quotes)
   9. [Generic](#generic)
 
-## Extension
-
-  - Must Have: 
-    - Prettier 
-    - Code Spell Checker
-
-  - Nice To Have: 
-    - ES7 + React/Redux/React-Native snippets
-    
- ## ESlints
-
-  - Must Have: 
-    - Eslint. -  Prettier & Airbnb
-    ```jsx 
-     npm i -D eslint prettier eslint-config-airbnb eslint-plugin-prettier eslint-config-prettier eslint-plugin-node eslint-config-node
-    ```
-     ```jsx 
-    {
-      "extends": ["airbnb", "prettier", "plugin:node/recommended"],
-      "plugins": ["prettier"],
-      "rules": {
-        "prettier/prettier": "error",
-        "no-unused-vars": "warn",
-        "no-console": "off",
-        "func-names": "off",
-        "no-process-exit": "off",
-        "object-shorthand": "off",
-        "class-methods-use-this": "off"
-      }
-    }
-    ```
-    - Code Spell Checker
-
-  - Nice To Have: 
-    1. ES7 + React/Redux/React-Native snippets
-
-## Project Structure
-
-   - assets 
-     - images 
-     - icons
-     - audios 
-   - services - REST API
-     - axios 
-     - google map
-     - facebook
-   - pages
-   - redux  toolkit
-     - slices
-     - store
-   - shared  (shared generic functions and components) :
-     - constants  ( COLOR , SIZES , FONTS, IMAGES, AUDIOS, ICONS,  DATA)
-     - utils (example: calculate items)
-     - components (example: cards,buttons)
-     - Validators (example: url validtors)
-     - hooks -  (example: every 'x' time do 'y')
+## General Types
   
-## Component Structure
+  *Number, String, Boolean, Symbol and Object*
 
-   - components 
-     - unique components 
-   - logic
-     - unique functions  
-   - index
-   - componentName
-   - styles  
+❌ Don’t ever use the types Number, String, Boolean, Symbol, or Object These types refer to non-primitive boxed objects that are almost never used appropriately in JavaScript code.
 
-## JS File Structure
-- import format 
-   - split between package import and internal import 
-   - package import always been first
-   - start from line 1
- ```jsx
-      // bad - incorrect sort
-    import ReservationCard from './ReservationCard';
-    import { useHistory } from "react-router-dom";
-    import RoutePaths from "../../shared/enums/RoutePaths";
-    
-      // bad - break line is must between import type
-    import { useHistory } from "react-router-dom";
-    import ReservationCard from './ReservationCard';
-    import RoutePaths from "../../shared/enums/RoutePaths";
-    
-    
-      // best practice
-    import { useHistory } from "react-router-dom"
-    
-    import ReservationCard from './ReservationCard';
-    import RoutePaths from "../../shared/enums/RoutePaths";
-    
+````jsx
+/* WRONG */
+function reverse(s: String): String;
+````
+✅ Do use the types number, string, boolean, and symbol.
 
-   ```
--  Component/Function sortBy format 
-   1. const
-   2. let
-   3. hooks
-   4. funcs
-   5. return
-   
-   
- ```jsx
-      // bad - incorrect sort + breaklines
-     const [loading, setLoading] = useState(false);
-     const getDataFromApi= (loading) =>{return loading};
-     const [actionCounter, setActionCounter] = useState(0);
 
-     useEffect(() => {},[actionCounter])
-     return (<Container> </Container>)
-    
-      // bad -  breaklines
-     const [loading, setLoading] = useState(false);
-     const [actionCounter, setActionCounter] = useState(0);
+````jsx
+/* OK */
+function reverse(s: string): string;
+````
 
-     useEffect(() => {},[actionCounter])
+instead of Object, use the non-primitive object type
 
-     const getDataFromApi= (loading) =>{return loading};
-     return (<Container> </Container>)
-    
-    
-       // best practice
-     const [loading, setLoading] = useState(false);
-     const [actionCounter, setActionCounter] = useState(0);
+ ## Generics
 
-     useEffect(() => {},[actionCounter])
+❌ Don’t ever have a generic type which doesn’t use its type parameter. 
+## any
+ ❌ Don’t use any as a type unless you are in the process of migrating a JavaScript project to TypeScript. The compiler effectively treats any as “please turn off type checking for this thing”. It is similar to putting an @ts-ignore comment around every usage of the variable. This can be very helpful when you are first migrating a JavaScript project to TypeScript as you can set the type for stuff you haven’t migrated yet as any, but in a full TypeScript project you are disabling type checking for any parts of your program that use it.
 
-     const getDataFromApi= (loading) =>{return loading};
-    
-     return (<Container> </Container>)
-    
+In cases where you don’t know what type you want to accept, or when you want to accept anything because you will be blindly passing it through without interacting with it, you can use unknown.
 
-   ```
+
+## Return Types of Callbacks
+
+ ❌ Don’t use the return type any for callbacks whose value will be ignored:
+
+````jsx
+
+/* WRONG */
+function fn(x: () => any) {
+  x();
+}
+````
+
+
+✅ Do use the return type void for callbacks whose value will be ignored:
+
+````jsx
+
+/* OK */
+function fn(x: () => void) {
+  x();
+}
+
+````
+❔ Why: Using void is safer because it prevents you from accidentally using the return value of x in an unchecked way:
+
+````jsx
+function fn(x: () => void) {
+  var k = x(); // oops! meant to do something else
+  k.doSomething(); // error, but would be OK if the return type had been 'any'
+}
+
+````
+## Optional Parameters in Callbacks
+
+❌ Don’t use optional parameters in callbacks unless you really mean it:
+````jsx
+
+/* WRONG */
+interface Fetcher {
+  getObject(done: (data: unknown, elapsedTime?: number) => void): void;
+}
+````
+This has a very specific meaning: the done callback might be invoked with 1 argument or might be invoked with 2 arguments. The author probably intended to say that the callback might not care about the elapsedTime parameter, but there’s no need to make the parameter optional to accomplish this — it’s always legal to provide a callback that accepts fewer arguments.
+
+✅ Do write callback parameters as non-optional:
+````jsx
+
+/* OK */
+interface Fetcher {
+  getObject(done: (data: unknown, elapsedTime: number) => void): void;
+}
+````
+
+## Use Union Types
 
 ## Name Convention
-
-Case types : 
- - **camelCase** 
- - **PascalCase** - first letter of each appended word must be uppercased include the first word
- - **UPPER_SNAKE_CASE**
- - **snake_case**
-
-type list:
- - Compnent - Pascal case
- - class - Pascal case
- - 
- - Functions - Camel case
- - Variables - Camel case
- - Props - Camel case
- - 
- - enum - UPPER_SNAKE_CASE
- - constants - UPPER_SNAKE_CASE
- - 
- - files - snake_case
- -  
-
-
-
-
-
-Format of names list: 
-  - boolean - isName - Camel case
-
-examples:
-
-  - **Extensions**: Use `.jsx` extension for React components. eslint: [`react/jsx-filename-extension`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md)
-  - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.jsx`.
-  - **Reference Naming**: Use PascalCase for React components and camelCase for their instances. eslint: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
-
-    ```jsx
-    // bad - import component - Pascal Case
-    import reservationCard from './ReservationCard';
-
-    // best practice - Pascal Case
-    import ReservationCard from './ReservationCard';
-
-    // bad - variable - camelCase
-    const ReservationItem = <ReservationCard />;
-
-    // best practice - variable - camelCase
-    const reservationItem = <ReservationCard />;
-    ```
-
-  - **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
-
-    ```jsx
-    // bad
-    import Footer from './Footer/Footer';
-
-    // bad
-    import Footer from './Footer/index';
-
-    // good
-    import Footer from './Footer';
-    ```
-
  ## Loading Indiaction
- - Coming Soon
  ## Error Handler
- - Coming Soon
-
 ## Quotes
- 
-  - Always use double quotes (`"`) for JSX attributes, but single quotes (`'`) for all other JS. eslint: [`jsx-quotes`](https://eslint.org/docs/rules/jsx-quotes)
-
-    > Why? Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.
-
-    ```jsx
-    // bad
-    <Foo bar='bar' />
-
-    // good
-    <Foo bar="bar" />
-
-    // bad
-    <Foo style={{ left: "20px" }} />
-
-    // good
-    <Foo style={{ left: '20px' }} />
-    ```
-
-
-
 ## Generic
- - Most of the functions anf components need to be generic. You always need to think if there is possible the use the function/component in another place, most of the cases it will be correct.
 
-examples:
-
-- Shared/components/Buttons --> BaseButton 
- ```jsx
-// stateless button
-const BaseButton = (props) => {
-
-  const { buttonTextStyle, buttonWidgetStyle, onChange, buttonText } = props;
-  
-  return (
-    <ButtonContainer onClick={onChange} style={buttonWidgetStyle}>
-      <ButtonText style={buttonTextStyle}>{buttonText}</ButtonText>
-    </ButtonContainer>
-  );
-};
-```
-
-
-- Shared/validators. --> urlValidor 
- ```jsx
-// check if the url is valid
-const isValidUrl = (urlString) => {
-
-  let urlPattern = new RegExp('^(https?:\\/\\/)?'+ // validate protocol
-  '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // validate domain name
-  '((\\d{1,3}\\.){3}\\d{1,3}))'+ // validate OR ip (v4) address
-  '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // validate port and path
-  '(\\?[;&a-z\\d%_.~+=-]*)?'+ // validate query string
-  '(\\#[-a-z\\d_]*)?$','i'); // validate fragment locator
-  
-return !!urlPattern.test(urlString);
-}
-```
-- Shared/hooks. --> useCarouselByIndexArr 
-
- ```jsx
-//  every 'x' time  fo something by dependency of index
-// The function will work as longest the dependency changes in onChange func
-
-const useEveryTimeDoSomething = (props) => {
-  const { delay, dependency, onChange } = props;
-
-  const timerRef = useRef(null);
-
-  useEffect(() => {
-    if (timerRef.current) {
-      clearInterval(timerRef.current);
-    }
-    timerRef.current = setInterval(() => {
-      onChange(); 
-    }, delay);
-
-    return () => clearInterval(timerRef.current);
-  }, [dependency]);
-};
-```
-  - Avoid using an array index as `key` prop, prefer a stable ID. eslint: [`react/no-array-index-key`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-array-index-key.md)
-
-> Why? Not using a stable ID [is an anti-pattern](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318) because it can negatively impact performance and cause issues with component state.
-
-We don’t recommend using indexes for keys if the order of items may change.
-
-  ```jsx
-  // bad
-  {todos.map((todo, index) =>
-    <Todo
-      {...todo}
-      key={index}
-    />
-  )}
-
-  // good
-  {todos.map(todo => (
-    <Todo
-      {...todo}
-      key={todo.id}
-    />
-  ))}
-  ```
 
 
 
