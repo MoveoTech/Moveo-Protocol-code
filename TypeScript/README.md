@@ -12,10 +12,8 @@ This style guide is mostly based on the standards that are currently prevalent i
   1. [Return Types of Callbacks](#return-types-of-callbacks)
   1. [Optional Parameters in Callbacks](#optional-parameters-in-callbacks)
   5. [Use Union Types](#use-union-types)
-  6. [Structure in project ](#structure_in_project )
-  7. [Error Handler](#error-handler)
-  8. [Quotes](#quotes)
-  9. [Generic](#generic)
+  6. [Structure in project ](#structure-in-project )
+
 
 ## General Types
   
