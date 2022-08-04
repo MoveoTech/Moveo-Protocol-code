@@ -12,7 +12,7 @@ This style guide is mostly based on the standards that are currently prevalent i
   1. [Return Types of Callbacks](#return-types-of-callbacks)
   1. [Optional Parameters in Callbacks](#optional-parameters-in-callbacks)
   5. [Use Union Types](#use-union-types)
-  6. [Loading Indiaction](#loading-indiaction)
+  6. [Structure in project ](#structure_in_project )
   7. [Error Handler](#error-handler)
   8. [Quotes](#quotes)
   9. [Generic](#generic)
@@ -100,12 +100,78 @@ interface Fetcher {
 ````
 
 ## Use Union Types
+ ❌ Don’t write overloads that differ by type in only one argument position:
+````jsx
 
-## Name Convention
- ## Loading Indiaction
- ## Error Handler
-## Quotes
-## Generic
+/* WRONG */
+interface Moment {
+  utcOffset(): number;
+  utcOffset(b: number): Moment;
+  utcOffset(b: string): Moment;
+}
+````
+
+
+✅ Do use union types whenever possible:
+
+````jsx
+
+/* OK */
+interface Moment {
+  utcOffset(): number;
+  utcOffset(b: number | string): Moment;
+}
+````
+
+Note that we didn’t make b optional here because the return types of the signatures differ.
+
+❔ Why: This is important for people who are “passing through” a value to your function:
+````jsx
+
+function fn(x: string): void;
+function fn(x: number): void;
+function fn(x: number | string) {
+  // When written with separate overloads, incorrectly an error
+  // When written with union types, correctly OK
+  return moment().utcOffset(x);
+}
+````
+
+## Structure in project 
+ every project there be two options that will  be types/interfaces in the project: 
+ 1. A general folder of types that can be used any where.
+ 1. A local file of type that use specific folder for example:  
+
+
+❌ 
+````jsx
+
+/* WRONG */
+// Teacher/Teacher.js
+interface TeacherProps {
+  name: string,
+  classType: string
+}
+// Teacher/Teacher.js
+const TeacherComponent = (props: TeacherProps)=>{return props.name}
+````
+
+✅ 
+````jsx
+
+/* OK */
+// Teacher/types.js
+export interface TeacherProps {
+  name: string,
+  classType: string
+}
+
+// Teacher/Teacher.js
+ import TeacherProps from './types';
+
+const TeacherComponent = (props: TeacherProps)=>{return props.name}
+````
+
 
 
 
