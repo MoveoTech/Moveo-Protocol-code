@@ -29,19 +29,18 @@ This style guide is mostly based on the standards that are currently prevalent i
 
 ## ESlints
 
-
 - Must Have:
 
   - Eslint. - Prettier & Airbnb
 
   ```jsx
-   npm i --save-dev eslint prettier eslint-config-airbnb eslint-plugin-prettier 
+   npm i --save-dev eslint prettier eslint-config-airbnb eslint-plugin-prettier
   ```
 
   ```jsx
   {
    "extends": ["airbnb", "prettier"],
-   "plugins": ["prettier","react"],
+   "plugins": ["prettier","react","react-hooks"],
    "rules": {
 
      //prettier
@@ -50,7 +49,7 @@ This style guide is mostly based on the standards that are currently prevalent i
      //  react
 
       "react/sort-comp": "off",
-      "react/prefer-stateless-function": "warn",     
+      "react/prefer-stateless-function": "warn",
       "react/jsx-filename-extension": "off",
       "react/require-default-props": "off",
       "react/jsx-curly-spacing": "error",
@@ -59,22 +58,28 @@ This style guide is mostly based on the standards that are currently prevalent i
       "react/jsx-key": "error",
       "react/no-array-index-key": "warn"
 
+
+   // react-hooks
+
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
+
      // others
+
      "no-unused-vars": "warn",
      "no-console": "off",
      "no-debugger": "off",
-     "no-nested-ternary": "off", 
+     "no-nested-ternary": "off",
      "no-trailing-spaces": ["error", { "skipBlankLines": true }],
      "func-names": "off",
      "no-process-exit": "off",
      "object-shorthand": "off",
      "linebreak-style": "off"
 
-  
+
    }
   }
   ```
-
 
 ## Project Structure
 
@@ -185,8 +190,8 @@ Case types :
 
 type list:
 
-- Compnent - PascalCase 
-- class - PascalCase 
+- Compnent - PascalCase
+- class - PascalCase
 -
 - Functions - camelCase
 - Variables - camelCase
