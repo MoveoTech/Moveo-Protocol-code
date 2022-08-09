@@ -35,7 +35,7 @@ This style guide is mostly based on the standards that are currently prevalent i
   - Eslint. - Prettier & Airbnb
 
   ```jsx
-   npm i -D eslint prettier eslint-config-airbnb eslint-plugin-prettier 
+   npm i --save-dev eslint prettier eslint-config-airbnb eslint-plugin-prettier 
   ```
 
   ```jsx
@@ -53,7 +53,7 @@ This style guide is mostly based on the standards that are currently prevalent i
       "react/prefer-stateless-function": "warn",     
       "react/jsx-filename-extension": "off",
       "react/require-default-props": "off",
-      "react/jsx-curly-spacing": "[error, never]",
+      "react/jsx-curly-spacing": "error",
       "react/prop-types": "off",
       "react/react-in-jsx-scope": "off",
       "react/jsx-key": "error",
