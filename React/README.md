@@ -1,255 +1,281 @@
 # Moveo Protocol Code - React
 
-*A mostly reasonable approach to React and JSX*
+_A mostly reasonable approach to React and JSX_
 
 This style guide is mostly based on the standards that are currently prevalent in JavaScript, although some conventions (i.e async/await or static class fields) may still be included or prohibited on a case-by-case basis. Currently, anything prior to stage 3 is not included nor recommended in this guide.
 
 ## Table of Contents
 
-  1. [Extension](#extension)
-  1. [ESlints](#eslints)
-  1. [Project Structure](#project-structure)
-  1. [Component Structure](#component-structure)
-  1. [JS File Structure](#js-file-structure)
-  5. [Name Convention](#name-convention)
-  6. [Loading Indiaction](#loading-indiaction)
-  7. [Error Handler](#error-handler)
-  8. [Quotes](#quotes)
-  9. [Generic](#generic)
+1. [Extension](#extension)
+1. [ESlints](#eslints)
+1. [Project Structure](#project-structure)
+1. [Component Structure](#component-structure)
+1. [JS File Structure](#js-file-structure)
+1. [Name Convention](#name-convention)
+1. [Loading Indiaction](#loading-indiaction)
+1. [Error Handler](#error-handler)
+1. [Quotes](#quotes)
+1. [Generic](#generic)
 
 ## Extension
 
-  - Must Have: 
-    - Prettier 
-    - Code Spell Checker
+- Must Have:
 
-  - Nice To Have: 
-    - ES7 + React/Redux/React-Native snippets
-    
- ## ESlints
+  - Prettier
+  - Code Spell Checker
 
-  - Must Have: 
-    - Eslint. -  Prettier & Airbnb
-    ```jsx 
-     npm i -D eslint prettier eslint-config-airbnb eslint-plugin-prettier eslint-config-prettier eslint-plugin-node eslint-config-node
-    ```
-     ```jsx 
-    {
-      "extends": ["airbnb", "prettier", "plugin:node/recommended"],
-      "plugins": ["prettier"],
-      "rules": {
-        "prettier/prettier": "error",
-        "no-unused-vars": "warn",
-        "no-console": "off",
-        "func-names": "off",
-        "no-process-exit": "off",
-        "object-shorthand": "off",
-        "class-methods-use-this": "off"
-      }
-    }
-    ```
-    - Code Spell Checker
+- Nice To Have:
+  - ES7 + React/Redux/React-Native snippets
 
-  - Nice To Have: 
-    1. ES7 + React/Redux/React-Native snippets
+## ESlints
+
+
+- Must Have:
+
+  - Eslint. - Prettier & Airbnb
+
+  ```jsx
+   npm i -D eslint prettier eslint-config-airbnb eslint-plugin-prettier 
+  ```
+
+  ```jsx
+  {
+   "extends": ["airbnb", "prettier"],
+   "plugins": ["prettier","react"],
+   "rules": {
+
+     //prettier
+     "prettier/prettier": "error",
+
+     //  react
+
+      "react/sort-comp": "off",
+      "react/prefer-stateless-function": "warn",     
+      "react/jsx-filename-extension": "off",
+      "react/require-default-props": "off",
+      "react/jsx-curly-spacing": "[error, never]",
+      "react/prop-types": "off",
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-key": "error",
+      "react/no-array-index-key": "warn"
+
+     // others
+     "no-unused-vars": "warn",
+     "no-console": "off",
+     "no-debugger": "off",
+     "no-nested-ternary": "off",
+     "no-trailing-spaces": ["error", { "skipBlankLines": true }],
+     "func-names": "off",
+     "no-process-exit": "off",
+     "object-shorthand": "off",
+     "linebreak-style": "off"
+
+  
+   }
+  }
+  ```
+
 
 ## Project Structure
 
-   - assets  
-     - images 
-     - icons
-     - audios 
-   - services - REST API
-     - axios 
-     - google map
-     - facebook
-   - pages
-   - redux  toolkit
-     - slices
-     - store
-   - shared  (shared generic functions and components) :
-     - constants  ( COLOR , SIZES , FONTS, IMAGES, AUDIOS, ICONS,  DATA) 
-     - utils (example: calculate items)
-     - components (example: cards,buttons)
-     - Validators (example: url validtors)
-     - hooks -  (example: every 'x' time do 'y')
-  
+- assets
+  - images
+  - icons
+  - audios
+- services - REST API
+  - axios
+  - google map
+  - facebook
+- pages
+- redux toolkit
+  - slices
+  - store
+- shared (shared generic functions and components) :
+  - constants ( COLOR , SIZES , FONTS, IMAGES, AUDIOS, ICONS, DATA)
+  - utils (example: calculate items)
+  - components (example: cards,buttons)
+  - Validators (example: url validtors)
+  - hooks - (example: every 'x' time do 'y')
+
 ## Component Structure
 
-   - components 
-     - unique components 
-   - logic
-     - unique functions  
-   - index
-   - componentName
-   - styles  
+- components
+  - unique components
+- logic
+  - unique functions
+- index
+- componentName
+- styles
 
 ## JS File Structure
-- import format 
-   - split between package import and internal import 
-   - package import always been first
-   - start from line 1
- ```jsx
-      // bad - incorrect sort
-    import ReservationCard from './ReservationCard';
-    import { useHistory } from "react-router-dom";
-    import RoutePaths from "../../shared/enums/RoutePaths";
-    
-      // bad - break line is must between import type
-    import { useHistory } from "react-router-dom";
-    import ReservationCard from './ReservationCard';
-    import RoutePaths from "../../shared/enums/RoutePaths";
-    
-    
-      // best practice
-    import { useHistory } from "react-router-dom"
-    
-    import ReservationCard from './ReservationCard';
-    import RoutePaths from "../../shared/enums/RoutePaths";
-    
 
-   ```
--  Component/Function sortBy format 
-   1. const
-   2. let
-   3. hooks
-   4. funcs
-   5. return
-   
-   
- ```jsx
-      // bad - incorrect sort + breaklines
-     const [loading, setLoading] = useState(false);
-     const getDataFromApi= (loading) =>{return loading};
-     const [actionCounter, setActionCounter] = useState(0);
+- import format
+  - split between package import and internal import
+  - package import always been first
+  - start from line 1
 
-     useEffect(() => {},[actionCounter])
-     return (<Container> </Container>)
-    
-      // bad -  breaklines
-     const [loading, setLoading] = useState(false);
-     const [actionCounter, setActionCounter] = useState(0);
+```jsx
+// bad - incorrect sort
+import ReservationCard from "./ReservationCard";
+import { useHistory } from "react-router-dom";
+import RoutePaths from "../../shared/enums/RoutePaths";
 
-     useEffect(() => {},[actionCounter])
+// bad - break line is must between import type
+import { useHistory } from "react-router-dom";
+import ReservationCard from "./ReservationCard";
+import RoutePaths from "../../shared/enums/RoutePaths";
 
-     const getDataFromApi= (loading) =>{return loading};
-     return (<Container> </Container>)
-    
-    
-       // best practice
-     const [loading, setLoading] = useState(false);
-     const [actionCounter, setActionCounter] = useState(0);
+// best practice
+import { useHistory } from "react-router-dom";
 
-     useEffect(() => {},[actionCounter])
+import ReservationCard from "./ReservationCard";
+import RoutePaths from "../../shared/enums/RoutePaths";
+```
 
-     const getDataFromApi= (loading) =>{return loading};
-    
-     return (<Container> </Container>)
-    
+- Component/Function sortBy format
+  1.  const
+  2.  let
+  3.  hooks
+  4.  funcs
+  5.  return
 
-   ```
+```jsx
+// bad - incorrect sort + breaklines
+const [loading, setLoading] = useState(false);
+const getDataFromApi = (loading) => {
+  return loading;
+};
+const [actionCounter, setActionCounter] = useState(0);
+
+useEffect(() => {}, [actionCounter]);
+return <Container> </Container>;
+
+// bad -  breaklines
+const [loading, setLoading] = useState(false);
+const [actionCounter, setActionCounter] = useState(0);
+
+useEffect(() => {}, [actionCounter]);
+
+const getDataFromApi = (loading) => {
+  return loading;
+};
+return <Container> </Container>;
+
+// best practice
+const [loading, setLoading] = useState(false);
+const [actionCounter, setActionCounter] = useState(0);
+
+useEffect(() => {}, [actionCounter]);
+
+const getDataFromApi = (loading) => {
+  return loading;
+};
+
+return <Container> </Container>;
+```
 
 ## Name Convention
 
-Case types : 
- - **camelCase** 
- - **PascalCase** - first letter of each appended word must be uppercased include the first word
- - **UPPER_SNAKE_CASE**
- - **snake_case**
+Case types :
+
+- **camelCase**
+- **PascalCase** - first letter of each appended word must be uppercased include the first word
+- **UPPER_SNAKE_CASE**
+- **snake_case**
 
 type list:
- - Compnent - Pascal case
- - class - Pascal case
- - 
- - Functions - Camel case
- - Variables - Camel case
- - Props - Camel case
- - 
- - enum - UPPER_SNAKE_CASE
- - constants - UPPER_SNAKE_CASE
- - 
- - files - snake_case
- -  
 
+- Compnent - Pascal case
+- class - Pascal case
+-
+- Functions - Camel case
+- Variables - Camel case
+- Props - Camel case
+-
+- enum - UPPER_SNAKE_CASE
+- constants - UPPER_SNAKE_CASE
+-
+- files - snake_case
+-
 
+Format of names list:
 
-
-
-Format of names list: 
-  - boolean - isName - Camel case
+- boolean - isName - Camel case
 
 examples:
 
-  - **Extensions**: Use `.jsx` extension for React components. eslint: [`react/jsx-filename-extension`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md)
-  - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.jsx`.
-  - **Reference Naming**: Use PascalCase for React components and camelCase for their instances. eslint: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
+- **Extensions**: Use `.jsx` extension for React components. eslint: [`react/jsx-filename-extension`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md)
+- **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.jsx`.
+- **Reference Naming**: Use PascalCase for React components and camelCase for their instances. eslint: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
 
-    ```jsx
-    // bad - import component - Pascal Case
-    import reservationCard from './ReservationCard';
+  ```jsx
+  // bad - import component - Pascal Case
+  import reservationCard from "./ReservationCard";
 
-    // best practice - Pascal Case
-    import ReservationCard from './ReservationCard';
+  // best practice - Pascal Case
+  import ReservationCard from "./ReservationCard";
 
-    // bad - variable - camelCase
-    const ReservationItem = <ReservationCard />;
+  // bad - variable - camelCase
+  const ReservationItem = <ReservationCard />;
 
-    // best practice - variable - camelCase
-    const reservationItem = <ReservationCard />;
-    ```
+  // best practice - variable - camelCase
+  const reservationItem = <ReservationCard />;
+  ```
 
-  - **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
+- **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
 
-    ```jsx
-    // bad
-    import Footer from './Footer/Footer';
+  ```jsx
+  // bad
+  import Footer from "./Footer/Footer";
 
-    // bad
-    import Footer from './Footer/index';
+  // bad
+  import Footer from "./Footer/index";
 
-    // good
-    import Footer from './Footer';
-    ```
+  // good
+  import Footer from "./Footer";
+  ```
 
- ## Loading Indiaction
- - Coming Soon
- ## Error Handler
- - Coming Soon
+## Loading Indiaction
+
+- Coming Soon
+
+## Error Handler
+
+- Coming Soon
 
 ## Quotes
- 
-  - Always use double quotes (`"`) for JSX attributes, but single quotes (`'`) for all other JS. eslint: [`jsx-quotes`](https://eslint.org/docs/rules/jsx-quotes)
 
-    > Why? Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.
+- Always use double quotes (`"`) for JSX attributes, but single quotes (`'`) for all other JS. eslint: [`jsx-quotes`](https://eslint.org/docs/rules/jsx-quotes)
 
-    ```jsx
-    // bad
-    <Foo bar='bar' />
+  > Why? Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.
 
-    // good
-    <Foo bar="bar" />
+  ```jsx
+  // bad
+  <Foo bar='bar' />
 
-    // bad
-    <Foo style={{ left: "20px" }} />
+  // good
+  <Foo bar="bar" />
 
-    // good
-    <Foo style={{ left: '20px' }} />
-    ```
+  // bad
+  <Foo style={{ left: "20px" }} />
 
-
+  // good
+  <Foo style={{ left: '20px' }} />
+  ```
 
 ## Generic
- - Most of the functions anf components need to be generic. You always need to think if there is possible the use the function/component in another place, most of the cases it will be correct.
+
+- Most of the functions anf components need to be generic. You always need to think if there is possible the use the function/component in another place, most of the cases it will be correct.
 
 examples:
 
-- Shared/components/Buttons --> BaseButton 
- ```jsx
+- Shared/components/Buttons --> BaseButton
+
+```jsx
 // stateless button
 const BaseButton = (props) => {
-
   const { buttonTextStyle, buttonWidgetStyle, onChange, buttonText } = props;
-  
+
   return (
     <ButtonContainer onClick={onChange} style={buttonWidgetStyle}>
       <ButtonText style={buttonTextStyle}>{buttonText}</ButtonText>
@@ -258,25 +284,28 @@ const BaseButton = (props) => {
 };
 ```
 
+- Shared/validators. --> urlValidor
 
-- Shared/validators. --> urlValidor 
- ```jsx
+```jsx
 // check if the url is valid
 const isValidUrl = (urlString) => {
+  let urlPattern = new RegExp(
+    "^(https?:\\/\\/)?" + // validate protocol
+      "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // validate domain name
+      "((\\d{1,3}\\.){3}\\d{1,3}))" + // validate OR ip (v4) address
+      "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // validate port and path
+      "(\\?[;&a-z\\d%_.~+=-]*)?" + // validate query string
+      "(\\#[-a-z\\d_]*)?$",
+    "i"
+  ); // validate fragment locator
 
-  let urlPattern = new RegExp('^(https?:\\/\\/)?'+ // validate protocol
-  '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // validate domain name
-  '((\\d{1,3}\\.){3}\\d{1,3}))'+ // validate OR ip (v4) address
-  '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // validate port and path
-  '(\\?[;&a-z\\d%_.~+=-]*)?'+ // validate query string
-  '(\\#[-a-z\\d_]*)?$','i'); // validate fragment locator
-  
-return !!urlPattern.test(urlString);
-}
+  return !!urlPattern.test(urlString);
+};
 ```
-- Shared/hooks. --> useCarouselByIndexArr 
 
- ```jsx
+- Shared/hooks. --> useCarouselByIndexArr
+
+```jsx
 //  every 'x' time  fo something by dependency of index
 // The function will work as longest the dependency changes in onChange func
 
@@ -290,37 +319,28 @@ const useEveryTimeDoSomething = (props) => {
       clearInterval(timerRef.current);
     }
     timerRef.current = setInterval(() => {
-      onChange(); 
+      onChange();
     }, delay);
 
     return () => clearInterval(timerRef.current);
   }, [dependency]);
 };
 ```
-  - Avoid using an array index as `key` prop, prefer a stable ID. eslint: [`react/no-array-index-key`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-array-index-key.md)
 
-> Why? Not using a stable ID [is an anti-pattern](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318) because it can negatively impact performance and cause issues with component state.
+- Avoid using an array index as `key` prop, prefer a stable ID.
 
 We don’t recommend using indexes for keys if the order of items may change.
 
-  ```jsx
-  // bad
-  {todos.map((todo, index) =>
-    <Todo
-      {...todo}
-      key={index}
-    />
-  )}
+```jsx
+// bad
+{
+  todos.map((todo, index) => <Todo {...todo} key={index} />);
+}
 
-  // good
-  {todos.map(todo => (
-    <Todo
-      {...todo}
-      key={todo.id}
-    />
-  ))}
-  ```
-
-
+// good
+{
+  todos.map((todo) => <Todo {...todo} key={todo.id} />);
+}
+```
 
 **[⬆ back to top](#table-of-contents)**

@@ -15,6 +15,28 @@ This style guide is mostly based on the standards that are currently prevalent i
   6. [Structure in project ](#structure-in-project)
 
 
+
+## ESlints
+
+
+- Must Have:
+
+  - Eslint. - Prettier & Airbnb
+
+  ```jsx
+   npm i -D  @typescript-eslint/eslint-plugin @typescript-eslint/parser
+  ```
+
+  ```jsx
+  {
+   "extends": ["plugin:@typescript-eslint/recommended"],
+   "plugins": ["@typescript-eslint"],
+   "rules": {
+
+   }
+  }
+  ```
+
 ## General Types
   
   *Number, String, Boolean, Symbol and Object*

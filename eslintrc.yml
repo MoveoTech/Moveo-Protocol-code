@@ -1,0 +1,106 @@
+parser: '@typescript-eslint/parser'
+
+parserOptions: {
+  parser: '@typescript-eslint/parser'
+}
+
+extends:
+  - airbnb
+  - plugin:prettier/recommended
+  - plugin:import/typescript
+  - plugin:@typescript-eslint/recommended
+
+globals :
+  VERSION: readonly
+  DOCUMENT360_API_KEY: readonly
+
+plugins:
+  - react
+  - babel
+  - import
+  - prettier
+  - react-hooks
+  - cypress
+  - '@typescript-eslint'
+
+env:
+  cypress/globals: true
+  browser: true
+  node: true
+  es6: true
+
+rules:
+  #prettier
+  prettier/prettier: [error, { endOfLine: "auto" }]
+
+  #react
+  react/sort-comp: off
+  react/prefer-stateless-function: warn
+  react/jsx-filename-extension: off
+  react/require-default-props: off
+  react/jsx-curly-spacing: [error, never]
+  react/prop-types: off
+  react/react-in-jsx-scope: off
+  react/jsx-key: error
+  react/jsx-curly-brace-presence: [error, { props: "never", children: "never" }]
+
+  #react-hooks
+  react-hooks/rules-of-hooks: error
+  react-hooks/exhaustive-deps: [warn, { enableDangerousAutofixThisMayCauseInfiniteLoops: true }]
+
+
+
+  #import
+  import/no-cycle: error
+  import/no-extraneous-dependencies: off
+  import/prefer-default-export: off
+  import/extensions: [
+    "error",
+    "ignorePackages",
+    {
+      "js": "never",
+      "jsx": "never",
+      "ts": "never",
+      "tsx": "never"
+    }
+  ]
+
+  #@typescript-eslint
+  '@typescript-eslint/no-inferrable-types': off
+  '@typescript-eslint/no-explicit-any': off
+  '@typescript-eslint/explicit-module-boundary-types': off
+  '@typescript-eslint/no-empty-function': off
+  '@typescript-eslint/no-var-requires': off
+  '@typescript-eslint/no-unused-vars': [error, { args: after-used, argsIgnorePattern: '^_' }]
+  'no-invalid-this': off
+  padding-line-between-statements: [
+      error,
+      { blankLine: 'always', prev: '*', next: 'return' },
+  ]
+  #others
+  no-debugger: off
+  padded-blocks: off
+  no-trailing-spaces: [error, { skipBlankLines: true }]
+  object-curly-newline: off
+  class-methods-use-this: error
+  no-nested-ternary: off
+  no-mixed-operators: [error, {allowSamePrecedence: true}]
+  linebreak-style: off
+  global-require: off
+  no-console: off
+  no-alert: off
+  no-unused-expressions: [error, {allowTaggedTemplates: true}]
+  curly: [error, multi-line]
+  no-shadow: off
+  '@typescript-eslint/no-shadow': [error]
+
+
+#settings
+settings:
+  import/resolver:
+    node:
+      paths:
+      - src/
+
+ignorePatterns:
+  - "document360.js"
