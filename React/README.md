@@ -63,7 +63,7 @@ This style guide is mostly based on the standards that are currently prevalent i
      "no-unused-vars": "warn",
      "no-console": "off",
      "no-debugger": "off",
-     "no-nested-ternary": "off",
+     "no-nested-ternary": "off", 
      "no-trailing-spaces": ["error", { "skipBlankLines": true }],
      "func-names": "off",
      "no-process-exit": "off",
