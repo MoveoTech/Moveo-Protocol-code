@@ -185,12 +185,12 @@ Case types :
 
 type list:
 
-- Compnent - Pascal case
-- class - Pascal case
+- Compnent - PascalCase 
+- class - PascalCase 
 -
-- Functions - Camel case
-- Variables - Camel case
-- Props - Camel case
+- Functions - camelCase
+- Variables - camelCase
+- Props - camelCase
 -
 - enum - UPPER_SNAKE_CASE
 - constants - UPPER_SNAKE_CASE
@@ -200,7 +200,7 @@ type list:
 
 Format of names list:
 
-- boolean - isName - Camel case
+- boolean - isName - camelCase
 
 examples:
 
