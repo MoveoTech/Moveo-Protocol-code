@@ -3,7 +3,7 @@
 *Here you can find the protocol code for your using technology*
 
 
-## Table of Contents
+## Table of Protocols
 
 1. [React](https://github.com/MoveoTech/Moveo-Protocol-code/tree/main/React)
 1. [NodeJS](https://github.com/MoveoTech/Moveo-Protocol-code/tree/main/NodeJS)
