@@ -12,7 +12,7 @@ This style guide is mostly based on the standards that are currently prevalent i
 1. [Component Structure](#component-structure)
 1. [JS File Structure](#js-file-structure)
 1. [Name Convention](#name-convention)
-1. [Loading Indiaction](#loading-indiaction)
+1. [Loading Indicator](#loading-indicator)
 1. [Error Handler](#error-handler)
 1. [Quotes](#quotes)
 1. [Generic](#generic)
@@ -240,17 +240,14 @@ examples:
 * Loading types
 
   - Skelton <!--best practice -->
-    ![Tux, the Linux mascot](https://miro.medium.com/max/1400/1*WED_fjwEcSSSpJAUIkZQQA.png)
-  - Linear and Spinner
-    ![Tux, the Linux mascot](https://kstatic.googleusercontent.com/files/e6094118eeee54168703cb764afedba9f6914bf88720388a655825805269ff598a4896f6c8f46bed651cc2cef41a122ecfb003c16a9dca9c4716e638cf610c8f)
-    - Spinner
-      ![Tux, the Linux mascot](https://kstatic.googleusercontent.com/files/e6094118eeee54168703cb764afedba9f6914bf88720388a655825805269ff598a4896f6c8f46bed651cc2cef41a122ecfb003c16a9dca9c4716e638cf610c8f)
-
-* Coming Soon
+  - Linear / progress indicator
+  - Spinner
 
 ## Error Handler
 
 - When you are developing your web application, you have to perform asynchronous operations, e.g. perform a fetch/ajax call to obtain data from the server. Sometimes you need to do silent background operations, whereas in other cases you need to block the user interface or notify them that something is going on.
+
+** User most notify when async action went wrong **
 
 - best practice
 
@@ -278,7 +275,7 @@ examples:
 
 ## Quotes
 
-- Always use double quotes (`"`) for JSX attributes, but single quotes (`'`) for all other JS. eslint: [`jsx-quotes`](https://eslint.org/docs/rules/jsx-quotes)
+- Always use double quotes (`"`) for JSX attributes, but single quotes (`'`) for all other JS.
 
   > Why? Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.
 
