@@ -239,8 +239,12 @@ examples:
 
 * Loading types
 
-  - Skelton <!--best practice --> ![Tux, the Linux mascot](https://miro.medium.com/max/1400/1*WED_fjwEcSSSpJAUIkZQQA.png)
-  -
+  - Skelton <!--best practice -->
+    ![Tux, the Linux mascot](https://miro.medium.com/max/1400/1*WED_fjwEcSSSpJAUIkZQQA.png)
+  - Linear and Spinner
+    ![Tux, the Linux mascot](https://kstatic.googleusercontent.com/files/e6094118eeee54168703cb764afedba9f6914bf88720388a655825805269ff598a4896f6c8f46bed651cc2cef41a122ecfb003c16a9dca9c4716e638cf610c8f)
+    - Spinner
+      ![Tux, the Linux mascot](https://kstatic.googleusercontent.com/files/e6094118eeee54168703cb764afedba9f6914bf88720388a655825805269ff598a4896f6c8f46bed651cc2cef41a122ecfb003c16a9dca9c4716e638cf610c8f)
 
 * Coming Soon
 
@@ -249,6 +253,7 @@ examples:
 - When you are developing your web application, you have to perform asynchronous operations, e.g. perform a fetch/ajax call to obtain data from the server. Sometimes you need to do silent background operations, whereas in other cases you need to block the user interface or notify them that something is going on.
 
 - best practice
+
   ```jsx
        // use try, catch and finally construct
      try {
@@ -268,8 +273,8 @@ examples:
         // an exception occurring
      }]
   ```
-- Types of Error Handlers
-  -
+
+- ## Types of Error Handlers
 
 ## Quotes
 
