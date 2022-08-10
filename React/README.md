@@ -58,7 +58,6 @@ This style guide is mostly based on the standards that are currently prevalent i
       "react/jsx-key": "error",
       "react/no-array-index-key": "warn"
 
-
    // react-hooks
 
     "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
@@ -83,6 +82,8 @@ This style guide is mostly based on the standards that are currently prevalent i
 
 ## Project Structure
 
+# recommended structure - > best practice
+
 - assets
   - images
   - icons
@@ -103,6 +104,8 @@ This style guide is mostly based on the standards that are currently prevalent i
   - hooks - (example: every 'x' time do 'y')
 
 ## Component Structure
+
+# A component should
 
 - components
   - unique components
@@ -137,11 +140,12 @@ import ReservationCard from "./ReservationCard";
 import RoutePaths from "../../shared/enums/RoutePaths";
 ```
 
-- Component/Function sortBy format
+- Component/Function order by the next groups format.
+  groups:
   1.  const
   2.  let
   3.  hooks
-  4.  funcs
+  4.  functions
   5.  return
 
 ```jsx
@@ -153,9 +157,9 @@ const getDataFromApi = (loading) => {
 const [actionCounter, setActionCounter] = useState(0);
 
 useEffect(() => {}, [actionCounter]);
-return <Container> </Container>;
+return <Container />;
 
-// bad -  breaklines
+// bad -  break lines
 const [loading, setLoading] = useState(false);
 const [actionCounter, setActionCounter] = useState(0);
 
@@ -164,7 +168,7 @@ useEffect(() => {}, [actionCounter]);
 const getDataFromApi = (loading) => {
   return loading;
 };
-return <Container> </Container>;
+return <Container />;
 
 // best practice
 const [loading, setLoading] = useState(false);
@@ -176,7 +180,7 @@ const getDataFromApi = (loading) => {
   return loading;
 };
 
-return <Container> </Container>;
+return <Container />;
 ```
 
 ## Name Convention
@@ -229,24 +233,43 @@ examples:
 
 - **Component Naming**: Use the filename as the component name. For example, `ReservationCard.jsx` should have a reference name of `ReservationCard`. However, for root components of a directory, use `index.jsx` as the filename and use the directory name as the component name:
 
-  ```jsx
-  // bad
-  import Footer from "./Footer/Footer";
+## Loading indicator
 
-  // bad
-  import Footer from "./Footer/index";
+- When you perform asynchronous operations, e.g. perform a fetch/ajax call to obtain data from the server. Sometimes you need to do silent background operations, whereas in other cases you need to block the user interface or notify them that something is going on.
 
-  // good
-  import Footer from "./Footer";
-  ```
+* Loading types
 
-## Loading Indiaction
+  - Skelton <!--best practice --> ![Tux, the Linux mascot](https://miro.medium.com/max/1400/1*WED_fjwEcSSSpJAUIkZQQA.png)
+  -
 
-- Coming Soon
+* Coming Soon
 
 ## Error Handler
 
-- Coming Soon
+- When you are developing your web application, you have to perform asynchronous operations, e.g. perform a fetch/ajax call to obtain data from the server. Sometimes you need to do silent background operations, whereas in other cases you need to block the user interface or notify them that something is going on.
+
+- best practice
+  ```jsx
+       // use try, catch and finally construct
+     try {
+        // Code to run
+        const res =  await getAvailableItems();
+        [break;]
+     }
+
+     catch ( e ) {
+        // Code to run if an exception occurs
+        errorHandlerNotification(errorMessage);
+        [break;]
+     }
+
+     [ finally {
+        // Code that is always executed regardless of
+        // an exception occurring
+     }]
+  ```
+- Types of Error Handlers
+  -
 
 ## Quotes
 
