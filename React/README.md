@@ -40,12 +40,31 @@ This style guide is mostly based on the standards that are currently prevalent i
   ```jsx
   {
    "extends": ["airbnb", "prettier"],
-   "plugins": ["prettier","react","react-hooks"],
+   "plugins": ["prettier", "react", "react-hooks", "import"],
+    "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
    "rules": {
 
      //prettier
      "prettier/prettier": "error",
 
+    //import
+    "import/prefer-default-export": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
      //  react
 
       "react/sort-comp": "off",
@@ -56,7 +75,9 @@ This style guide is mostly based on the standards that are currently prevalent i
       "react/prop-types": "off",
       "react/react-in-jsx-scope": "off",
       "react/jsx-key": "error",
-      "react/no-array-index-key": "warn"
+      "react/no-array-index-key": "warn",
+      "react/function-component-definition": "off",
+
 
    // react-hooks
 
@@ -65,15 +86,15 @@ This style guide is mostly based on the standards that are currently prevalent i
 
      // others
 
-     "no-unused-vars": "warn",
-     "no-console": "off",
-     "no-debugger": "off",
-     "no-nested-ternary": "off",
-     "no-trailing-spaces": ["error", { "skipBlankLines": true }],
-     "func-names": "off",
-     "no-process-exit": "off",
-     "object-shorthand": "off",
-     "linebreak-style": "off"
+    "no-unused-vars": "warn",
+    "no-console": "off",
+    "no-debugger": "off",
+    "no-nested-ternary": "off",
+    "no-trailing-spaces": ["error", { "skipBlankLines": true }],
+    "func-names": "off",
+    "no-process-exit": "off",
+    "object-shorthand": "off",
+    "linebreak-style": "off"
 
 
    }
