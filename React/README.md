@@ -40,25 +40,25 @@ This style guide is mostly based on the standards that are currently prevalent i
   
   ```jsx
   {
-  "extends": [
-    "airbnb",
-    "prettier",
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
-  ],
-  "plugins": ["prettier", "react", "react-hooks", "import"],
+    "extends": [
+      "airbnb",
+      "prettier",
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "plugins": ["prettier", "react", "react-hooks", "import"],
     "settings": {
-    "import/resolver": {
-      "typescript": {
-        "alwaysTryTypes": true
+      "import/resolver": {
+        "typescript": {
+          "alwaysTryTypes": true
+        }
       }
-    }
-  },
-  "rules": {
-    //prettier
-    "prettier/prettier": ["error", { "singleQuote": true }],
-    "jsx-quotes": [2, "prefer-single"],
+    },
+    "rules": {
+      //prettier
+      "prettier/prettier": ["error", { "singleQuote": true }],
+      "jsx-quotes": [2, "prefer-single"],
 
     //import
     "import/prefer-default-export": "off",
@@ -68,6 +68,8 @@ This style guide is mostly based on the standards that are currently prevalent i
       {
         "js": "never",
         "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
       }
     ],
 
