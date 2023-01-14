@@ -25,6 +25,7 @@ This style guide is mostly based on the standards that are currently prevalent i
   - Code Spell Checker
 
 - Nice To Have:
+  - ESLint
   - ES7 + React/Redux/React-Native snippets
 
 ## ESlints
@@ -38,20 +39,25 @@ This style guide is mostly based on the standards that are currently prevalent i
   ```
 
   ```jsx
-  {
-   "extends": ["airbnb", "prettier"],
-   "plugins": ["prettier", "react", "react-hooks", "import"],
-    "settings": {
+  "extends": [
+    "airbnb",
+    "prettier",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "plugins": ["prettier", "react", "react-hooks", "import"],
+  "settings": {
     "import/resolver": {
-      "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      "typescript": {
+        "alwaysTryTypes": true
       }
     }
   },
-   "rules": {
-
-     //prettier
-     "prettier/prettier": "error",
+  "rules": {
+    //prettier
+    "prettier/prettier": ["error", { "singleQuote": true }],
+    "jsx-quotes": [2, "prefer-single"],
 
     //import
     "import/prefer-default-export": "off",
@@ -61,44 +67,58 @@ This style guide is mostly based on the standards that are currently prevalent i
       {
         "js": "never",
         "jsx": "never",
-        "ts": "never",
-        "tsx": "never"
       }
     ],
-     //  react
 
-      "react/sort-comp": "off",
-      "react/prefer-stateless-function": "warn",
-      "react/jsx-filename-extension": "off",
-      "react/require-default-props": "off",
-      "react/jsx-curly-spacing": "error",
-      "react/prop-types": "off",
-      "react/react-in-jsx-scope": "off",
-      "react/jsx-key": "error",
-      "react/no-array-index-key": "warn",
-      "react/function-component-definition": "off",
+    //  react
 
+    "react/sort-comp": "off",
+    "react/prefer-stateless-function": "warn",
+    "react/jsx-filename-extension": "off",
+    "react/require-default-props": "off",
+    "react/jsx-curly-spacing": "error",
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-key": "error",
+    "react/no-array-index-key": "warn",
+    "react/function-component-definition": "off",
+    "arrow-body-style": "off",
+    "react/jsx-props-no-spreading": "off",
 
-   // react-hooks
+    // react-hooks
 
     "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
     "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
-
-     // others
-
-    "no-unused-vars": "warn",
-    "no-console": "off",
-    "no-debugger": "off",
+    //jsx-a11y/
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    // others
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "[I]\\w+^_"
+      }
+    ],
+    "no-console": "warn",
+    "no-debugger": "warn",
     "no-nested-ternary": "off",
     "no-trailing-spaces": ["error", { "skipBlankLines": true }],
     "func-names": "off",
     "no-process-exit": "off",
     "object-shorthand": "off",
-    "linebreak-style": "off"
-
-
-   }
+    "linebreak-style": "off",
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": ["state"]
+      }
+    ]
   }
+  
   ```
 
 ## Project Structure
