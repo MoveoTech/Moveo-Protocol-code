@@ -35,10 +35,11 @@ This style guide is mostly based on the standards that are currently prevalent i
   - Eslint. - Prettier & Airbnb
 
   ```jsx
-   npm i --save-dev eslint prettier eslint-config-airbnb eslint-plugin-prettier
+   npm i --save-dev eslint prettier eslint-config-airbnb eslint-config-prettier eslint-plugin-prettier @typescript-eslint/eslint-plugin     @typescript-eslint/parser
   ```
-
+  
   ```jsx
+  {
   "extends": [
     "airbnb",
     "prettier",
@@ -47,7 +48,7 @@ This style guide is mostly based on the standards that are currently prevalent i
     "plugin:@typescript-eslint/recommended"
   ],
   "plugins": ["prettier", "react", "react-hooks", "import"],
-  "settings": {
+    "settings": {
     "import/resolver": {
       "typescript": {
         "alwaysTryTypes": true
@@ -94,7 +95,6 @@ This style guide is mostly based on the standards that are currently prevalent i
     "jsx-a11y/no-static-element-interactions": "off",
     // others
     "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error"],
     "no-unused-vars": [
       "error",
       {
@@ -102,6 +102,13 @@ This style guide is mostly based on the standards that are currently prevalent i
         "varsIgnorePattern": "[I]\\w+^_"
       }
     ],
+       
+     // TS
+
+    "@typescript-eslint/no-use-before-define": ["error"],
+    
+    // general
+    
     "no-console": "warn",
     "no-debugger": "warn",
     "no-nested-ternary": "off",
@@ -137,9 +144,18 @@ This style guide is mostly based on the standards that are currently prevalent i
 - redux toolkit
   - slices
   - store
+  - thunks
+  - adapters
+ - resources
+  - should contain all the text of the website will be here. (create a base for more than language)
 - shared (shared generic functions and components) :
-  - constants ( COLOR , SIZES , FONTS, IMAGES, AUDIOS, ICONS, DATA)
-  - utils (example: calculate items)
+  - components (example: cards,buttons, etc..)
+  - constants ( IMAGES, AUDIOS, ICONS)
+  - validators (example: url validtors,  etc...)
+  - hooks - (example: useIsMobile() | useDownloadUrl())
+- data (shared generic functions and components) :
+  - UI ( COLOR , SIZES , FONTS, IMAGES, AUDIOS, ICONS)
+  - types (general types)
   - components (example: cards,buttons)
   - Validators (example: url validtors)
   - hooks - (example: every 'x' time do 'y')
