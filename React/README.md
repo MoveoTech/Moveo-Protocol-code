@@ -269,6 +269,8 @@ type list:
 Format of names list:
 
 - boolean - isName - camelCase
+- hooks -  useIsMobile - camelCase
+- function - getData  - Always do Action when use Get*And*FiltersCars is a 2 action should create 2 function
 
 examples:
 
