@@ -148,7 +148,7 @@ This style guide is mostly based on the standards that are currently prevalent i
   - store
   - thunks
   - adapters
- - resources
+- resources
   - should contain all the text of the website will be here. (create a base for more than language)
 - shared (shared generic functions and components) :
   - components (example: cards,buttons, etc..)
