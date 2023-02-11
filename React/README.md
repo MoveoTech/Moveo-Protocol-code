@@ -446,23 +446,40 @@ The useCallback and useMemo Hook only runs when one of its dependencies update. 
 - useCallback.
 
  > returns a memoized function.
- This allows us to isolate resource intensive functions so that they will not automatically run on every render.
+ It takes two arguments: a function and an array of dependencies. If the dependencies haven't changed, the hook will return the previous memoized function. This can be useful when you have a performance-critical function that you don't want to re-create on every render.
  
 
   ```jsx
+ const Example = ({ data }) => {
+  const [selected, setSelected] = useState(null);
+  
   // bad
-  {isFoo ?
-  <Foo bar='bar' />
-  : ''}
-
+  const handleClick = (item) => {
+      setSelected(item);
+    };
+  
   // good
-   {isFoo && <Foo bar="bar" />}
+  const handleClick = useCallback(
+    (item) => {
+      setSelected(item);
+    },
+    [setSelected]
+  );
 
-  // bad
-  <Foo style={isSelected?{ left: "20px" }:{} />
-
-  // good
-  <Foo style={isSelected && { left: '20px' }} />
+  return (
+    <ul>
+      {data.map(item => (
+        <li
+          key={item.id}
+          onClick={() => handleClick(item)}
+          className={item === selected && 'selected'}
+        >
+          {item.name}
+        </li>
+      ))}
+    </ul>
+  );
+}
   ```
 
   > Why? Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.
