@@ -356,21 +356,53 @@ examples:
 
 ## Generic
 
-- Most of the functions anf components need to be generic. You always need to think if there is possible the use the function/component in another place, most of the cases it will be correct.
+- Most of the functions and components need to be generic. You always need to think if there is possible the use the function/component in another place, most of the cases it will be correct.
+- use storybook(or any opensource for create a UI development, testing, and documentation) -  **Storybook** is a frontend workshop for building UI components and pages in isolation. Thousands of teams use it for UI development, testing, and documentation. No save data o
 
 examples:
 
-- Shared/components/Buttons --> BaseButton
+- Shared/components/Buttons -->  Button - generic Button
 
 ```jsx
 // stateless button
-const BaseButton = (props) => {
-  const { buttonTextStyle, buttonWidgetStyle, onChange, buttonText } = props;
+const Button: FC<IButtonProps> = ({
+  label,
+  icon,
+  isDisabled,
+  refItem,
+  customStyle,
+  typographyStyle,
+  type = BUTTON_TYPES.MAIN,
+  size = BUTTON_SIZES.LARGE,
+  loading = false,
+  ariaLabel,
+  onClickFunc,
+}) => {
+  const classes = useStyles();
+
+  const buttonType = useMemo(() => {
+    return buttonTypeFormatter(type, classes);
+  }, [classes, type]);
+
+  const buttonSize = useMemo(() => {
+    return buttonSizeFormatter(size);
+  }, [size]);
 
   return (
-    <ButtonContainer onClick={onChange} style={buttonWidgetStyle}>
-      <ButtonText style={buttonTextStyle}>{buttonText}</ButtonText>
-    </ButtonContainer>
+    <MButton
+      aria-label={ariaLabel}
+      className={`${classes.root} ${buttonType}`}
+      onClick={onClickFunc}
+      disabled={isDisabled || loading}
+      ref={refItem}
+      sx={{ ...buttonSize, ...customStyle }}
+    >
+      {icon}
+      <Typography variant='h5' sx={{ ...labelSx, ...typographyStyle }}>
+        {label}
+      </Typography>
+      {loading && <CircularProgress size={LOADER_SIZES.SMALL} sx={loaderStyle} />}
+    </MButton>
   );
 };
 ```
@@ -380,7 +412,7 @@ const BaseButton = (props) => {
 ```jsx
 // check if the url is valid
 const isValidUrl = (urlString) => {
-  let urlPattern = new RegExp(
+  const urlPattern = new RegExp(
     "^(https?:\\/\\/)?" + // validate protocol
       "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // validate domain name
       "((\\d{1,3}\\.){3}\\d{1,3}))" + // validate OR ip (v4) address
@@ -394,27 +426,25 @@ const isValidUrl = (urlString) => {
 };
 ```
 
-- Shared/hooks. --> useCarouselByIndexArr
+- Shared/hooks. --> useIsMobile
 
 ```jsx
 //  every 'x' time  fo something by dependency of index
 // The function will work as longest the dependency changes in onChange func
 
-const useEveryTimeDoSomething = (props) => {
-  const { delay, dependency, onChange } = props;
-
-  const timerRef = useRef(null);
+export const useIsMobile = (mobileWidth = DEFAULT_MOBILE_WIDTH) => {
+  const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    if (timerRef.current) {
-      clearInterval(timerRef.current);
-    }
-    timerRef.current = setInterval(() => {
-      onChange();
-    }, delay);
+    const handleWindowResize = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handleWindowResize);
+    return () => window.removeEventListener('resize', handleWindowResize);
+  }, []);
 
-    return () => clearInterval(timerRef.current);
-  }, [dependency]);
+  // Return the width so we can use it in our components
+  return useMemo(() => {
+    return width < mobileWidth;
+  }, [mobileWidth, width]);
 };
 ```
 
