@@ -428,25 +428,26 @@ export const useIsMobile = (mobileWidth = DEFAULT_MOBILE_WIDTH) => {
 ```
 ## React hooks
 
-****The useCallback and useMemo Hooks are similar. The main difference is that useMemo returns a memoized value and useCallback returns a memoized function.****
+****The useCallback and useMemo Hooks are similar. The main difference is that useMemo returns a memoized value and useCallback returns a memoized function.
+The useCallback and useMemo Hook only runs when one of its dependencies update. This can improve performance.****
 
 - useMemo.
 
-  > The useMemo Hook only runs when one of its dependencies update. This can improve performance.
+  > returns a memoized value.
+  The useMemo Hook can be used to keep expensive, resource intensive functions from needlessly running.
 
   ```jsx
   // bad
   const isSelected = item === selected 
 
   // good
-  const isSelected = useMemo(()=>
-          item === selected
-          ,[item,selected]) 
+   const isSelected = useMemo(() => item === selected, [item, selected]);
   ```
 - useCallback.
 
+ > returns a memoized function.
  This allows us to isolate resource intensive functions so that they will not automatically run on every render.
- The useCallback Hook only runs when one of its dependencies update. This can improve performance.
+ 
 
   ```jsx
   // bad
