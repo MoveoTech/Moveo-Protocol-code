@@ -1,6 +1,6 @@
 # Moveo Protocol Code - React
 
-_A mostly reasonable approach to React and JSX_
+_A mostly reasonable approach to React and JSX_TSX
 
 This style guide is mostly based on the standards that are currently prevalent in JavaScript, although some conventions (i.e async/await or static class fields) may still be included or prohibited on a case-by-case basis. Currently, anything prior to stage 3 is not included nor recommended in this guide.
 
@@ -168,13 +168,13 @@ This style guide is mostly based on the standards that are currently prevalent i
 
 - components
   - unique components
-- logic
-  - unique functions
+- hooks
+  - unique hooks
 - index
 - componentName
 - styles
 
-## JS File Structure
+## TS/JS File Structure
 
 - import format
   - split between package import and internal import
