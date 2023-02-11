@@ -429,8 +429,6 @@ const isValidUrl = (urlString) => {
 - Shared/hooks. --> useIsMobile
 
 ```jsx
-//  every 'x' time  fo something by dependency of index
-// The function will work as longest the dependency changes in onChange func
 
 export const useIsMobile = (mobileWidth = DEFAULT_MOBILE_WIDTH) => {
   const [width, setWidth] = useState(window.innerWidth);
