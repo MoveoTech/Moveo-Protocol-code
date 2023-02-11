@@ -334,25 +334,6 @@ examples:
 
 - ## Types of Error Handlers
 
-## Quotes
-
-- Always use double quotes (`"`) for JSX attributes, but single quotes (`'`) for all other JS.
-
-  > Why? Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.
-
-  ```jsx
-  // bad
-  <Foo bar='bar' />
-
-  // good
-  <Foo bar="bar" />
-
-  // bad
-  <Foo style={{ left: "20px" }} />
-
-  // good
-  <Foo style={{ left: '20px' }} />
-  ```
 
 ## Generic
 
@@ -445,6 +426,83 @@ export const useIsMobile = (mobileWidth = DEFAULT_MOBILE_WIDTH) => {
   }, [mobileWidth, width]);
 };
 ```
+## React hooks
+
+****The useCallback and useMemo Hooks are similar. The main difference is that useMemo returns a memoized value and useCallback returns a memoized function.****
+
+- useMemo.
+
+  > The useMemo Hook only runs when one of its dependencies update. This can improve performance.
+
+  ```jsx
+  // bad
+  const isSelected = item === selected 
+
+  // good
+  const isSelected = useMemo(()=>
+          item === selected
+          ,[item,selected]) 
+  ```
+- useCallback.
+
+ This allows us to isolate resource intensive functions so that they will not automatically run on every render.
+ The useCallback Hook only runs when one of its dependencies update. This can improve performance.
+
+  ```jsx
+  // bad
+  {isFoo ?
+  <Foo bar='bar' />
+  : ''}
+
+  // good
+   {isFoo && <Foo bar="bar" />}
+
+  // bad
+  <Foo style={isSelected?{ left: "20px" }:{} />
+
+  // good
+  <Foo style={isSelected && { left: '20px' }} />
+  ```
+
+  > Why? Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.
+
+  ```jsx
+  // bad
+  {isFoo ?
+  <Foo bar='bar' />
+  : ''}
+
+  // good
+   {isFoo && <Foo bar="bar" />}
+
+  // bad
+  <Foo style={isSelected?{ left: "20px" }:{} />
+
+  // good
+  <Foo style={isSelected && { left: '20px' }} />
+  ```
+
+## Best Practices
+
+- Don't use if (`?`) if the else id empty  (: '')  use And ('&&).
+
+  > Why? Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.
+
+  ```jsx
+  // bad
+  {isFoo ?
+  <Foo bar='bar' />
+  : ''}
+
+  // good
+   {isFoo && <Foo bar="bar" />}
+
+  // bad
+  <Foo style={isSelected?{ left: "20px" }:{} />
+
+  // good
+  <Foo style={isSelected && { left: '20px' }} />
+  ```
 
 - Avoid using an array index as `key` prop, prefer a stable ID.
 
