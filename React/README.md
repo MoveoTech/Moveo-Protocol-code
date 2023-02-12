@@ -155,12 +155,11 @@ This style guide is mostly based on the standards that are currently prevalent i
   - constants ( IMAGES, AUDIOS, ICONS)
   - validators (example: url validtors,  etc...)
   - hooks - (example: useIsMobile() | useDownloadUrl())
-- data (shared generic functions and components) :
+- data (all project data) :
   - UI ( COLOR , SIZES , FONTS, IMAGES, AUDIOS, ICONS)
   - types (general types)
-  - components (example: cards,buttons)
-  - Validators (example: url validtors)
-  - hooks - (example: every 'x' time do 'y')
+  - utils (example: cards,buttons)
+  - enums
 
 ## Component Structure
 
