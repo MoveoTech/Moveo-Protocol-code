@@ -262,8 +262,12 @@ type list:
 - enum - UPPER_SNAKE_CASE
 - constants - UPPER_SNAKE_CASE
 -
-- files - snake_case
--
+- files - name.("Father").js - (should belond undet the Father folder) Examples:
+  1. Button.components.tsx
+  2. useIsMocile.hooks.tsx
+  3. homePage.data.ts
+  3. homePage.types.ts
+
 
 Format of names list:
 
