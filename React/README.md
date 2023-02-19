@@ -275,6 +275,28 @@ Format of names list:
 - hooks -  useIsMobile - camelCase
 - function - getData  - Always do Action when use Get*And*FiltersCars is a 2 action should create 2 function
 
+TypeScript Format of names:
+
+- interface (TS) - IButtonTitle
+  ```jsx
+    interface IPagination {
+      page: number;
+      pageSize: number;
+      pageCount: number;
+      total: number;
+    }
+```
+
+- type (TS) - ButtonTitleType 
+```jsx
+    type PaginationType = {
+          page: number;
+          pageSize: number;
+          pageCount: number;
+          total: number;
+        }
+```
+
 examples:
 
 - **Extensions**: Use `.jsx` extension for React components. eslint: [`react/jsx-filename-extension`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md)
