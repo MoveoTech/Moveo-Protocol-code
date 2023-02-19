@@ -285,7 +285,6 @@ TypeScript Format of names:
       pageCount: number;
       total: number;
     }
-```
 
 - type (TS) - ButtonTitleType 
 ```jsx
