@@ -170,7 +170,7 @@ This style guide is mostly based on the standards that are currently prevalent i
 - hooks
   - unique hooks
 - index
-- componentName
+- ComponentName
 - styles
 
 ## TS/JS File Structure
