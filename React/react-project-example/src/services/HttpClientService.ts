@@ -12,7 +12,7 @@ export enum MethodOption {
   DELETE = 'delete',
   PATCH = 'patch',
 }
-const baseURL = 'https://inference.quago.io';
+const baseURL = 'https://exampleUrl.com';
 
 export const HttpClientService = {
   async post<T>(
@@ -42,10 +42,7 @@ export const HttpClientService = {
       method: MethodOption.PUT,
     });
   },
-  async get<T>(
-    url: string,
-    options: AxiosRequestConfig = {},
-  ): Promise<AxiosResponse<T, any>> {
+  async get<T>(url: string, options: AxiosRequestConfig = {}): Promise<AxiosResponse<T, any>> {
     return HttpClientService.send<T>({
       ...options,
       url,

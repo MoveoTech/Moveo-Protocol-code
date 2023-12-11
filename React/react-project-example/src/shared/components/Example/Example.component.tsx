@@ -1,5 +1,6 @@
+import { StyledExampleContainer } from './Example.style';
 import IExampleComponent from './Example.types';
 
 export const Example = ({ code }: IExampleComponent) => {
-  return <div>{code}</div>;
+  return <StyledExampleContainer>{code}</StyledExampleContainer>;
 };

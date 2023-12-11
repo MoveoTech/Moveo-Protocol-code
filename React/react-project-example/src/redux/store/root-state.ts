@@ -1,6 +1,5 @@
+import { UserSlice } from '../../data/types/userSlice.type';
+
 export interface RootState {
-  stepperState: StepperSlice;
-  integrationState: IntegrationSlice;
   userState: UserSlice;
-  visualState: VisualsSlice;
 }
