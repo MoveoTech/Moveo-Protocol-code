@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import userAdapter from '../adapters/user.adapter';
+import userAdapter from './user.adapter';
 
 export const getUserEmail = createAsyncThunk<
   string,
@@ -20,5 +20,5 @@ export const getUserEmail = createAsyncThunk<
     } catch (error: any) {
       return rejectWithValue(error.response.data);
     }
-  }
+  },
 );

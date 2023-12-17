@@ -3,8 +3,8 @@ import RootReducer from './root-reducer';
 
 const store = configureStore({
   reducer: {
-    rootReducer: RootReducer,
-  },
+    rootReducer: RootReducer
+  }
 });
 
 export type RootState = ReturnType<typeof store.getState>;
