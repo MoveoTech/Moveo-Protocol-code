@@ -1,7 +1,8 @@
 import { Typography, styled } from '@mui/material';
 
 export const StyledExampleContainer = styled('div')({
-  width: '163px',
+  display: 'flex',
+  width: '300Px',
   height: '27px'
 });
 

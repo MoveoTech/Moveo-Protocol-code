@@ -11,7 +11,7 @@ export const getUserEmail = createAsyncThunk<
   'user',
   async (
     accessToken,
-    { rejectWithValue, fulfillWithValue },
+    { rejectWithValue, fulfillWithValue }
   ): Promise<string | any> => {
     try {
       const response = await userAdapter.getUserEmail(accessToken);
@@ -20,5 +20,5 @@ export const getUserEmail = createAsyncThunk<
     } catch (error: any) {
       return rejectWithValue(error.response.data);
     }
-  },
+  }
 );
