@@ -11,6 +11,8 @@ function App() {
           console.log('button clicked');
         }}
         label="Example Button"
+        ariaLabel="aria label of example button"
+        isLoading={false}
       />
     </div>
   );

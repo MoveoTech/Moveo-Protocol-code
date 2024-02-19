@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { StyledExampleButton, StyledExampleText } from './style';
+import { StyledExampleButton, StyledExampleText } from './Button.style';
 import { IExampleButton } from './Button.types';
 
 export const Button = ({

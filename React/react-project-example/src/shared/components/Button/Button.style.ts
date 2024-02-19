@@ -1,7 +1,7 @@
-import { Typography } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import { styled } from '@mui/system';
 
-export const StyledExampleButton = styled('button')({
+export const StyledExampleButton = styled(Button)({
   color: 'black',
   padding: '8px 12px',
   height: '48px',
