@@ -5,7 +5,7 @@ import { IExampleButton } from './Button.types';
 export const Button = ({
   onClickFunc,
   isDisabled,
-  loading,
+  isLoading,
   ariaLabel,
   refItem,
   customStyle,
@@ -13,11 +13,11 @@ export const Button = ({
 }: IExampleButton) => {
   const handleClick = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
-      if (!isDisabled && !loading && onClickFunc) {
+      if (!isDisabled && !isLoading && onClickFunc) {
         onClickFunc(event);
       }
     },
-    [onClickFunc, isDisabled, loading]
+    [onClickFunc, isDisabled, isLoading]
   );
   return (
     <StyledExampleButton

@@ -8,6 +8,6 @@ export interface IExampleButton {
   refItem?: any;
   customStyle?: React.CSSProperties | SxProps;
   typographyStyle?: React.CSSProperties;
-  loading?: boolean;
+  isLoading?: boolean;
   ariaLabel?: string;
 }
