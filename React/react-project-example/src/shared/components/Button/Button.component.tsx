@@ -9,7 +9,8 @@ export const Button = ({
   ariaLabel,
   refItem,
   customStyle,
-  typographyStyle
+  typographyStyle,
+  label
 }: IExampleButton) => {
   const handleClick = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -26,7 +27,7 @@ export const Button = ({
       ref={refItem}
       sx={customStyle}
     >
-      <StyledExampleText sx={typographyStyle}>text</StyledExampleText>
+      <StyledExampleText sx={typographyStyle}>{label}</StyledExampleText>
     </StyledExampleButton>
   );
 };
