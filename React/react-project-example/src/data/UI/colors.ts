@@ -21,21 +21,21 @@ export const COLORS: IColors = {
     dark5: '#000000',
     dark6: '#0000001A',
     dark7: '#A6A6A6',
-    dark8: '#86868626',
+    dark8: '#86868626'
   },
   green: {
     main: '#C6F8D1',
-    secondary: '#7BEF8D',
+    secondary: '#7BEF8D'
   },
   black: {
     main: '#464646',
-    light: '#525252',
+    light: '#525252'
   },
   yellow: {
     main: '#FFCE00',
     main2: '#FFF6CE',
     secondary: '#FCD4AF',
-    dark: '#9F861E',
+    dark: '#9F861E'
   },
   blue: {
     main: '#0C3DEA',
@@ -47,17 +47,17 @@ export const COLORS: IColors = {
     light4: '#99AFFF',
     light5: '#F5F7FF',
     baby: '#DBF6FF',
-    dark1: '#0038FF',
+    dark1: '#0038FF'
   },
   red: {
-    main: '#FF3939',
+    main: '#FF3939'
   },
   white: {
     main: '#FFFFFF',
-    main2: '#FCFCFC',
+    main2: '#FCFCFC'
   },
   purple: {
     main: '#EDDBFF',
-    main2: '#B772FF',
-  },
+    main2: '#B772FF'
+  }
 };

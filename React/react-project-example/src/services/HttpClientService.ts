@@ -10,7 +10,7 @@ export enum MethodOption {
   PUT = 'put',
   GET = 'get',
   DELETE = 'delete',
-  PATCH = 'patch',
+  PATCH = 'patch'
 }
 const baseURL = 'https://exampleUrl.com';
 
@@ -25,7 +25,7 @@ export const HttpClientService = {
       url,
       baseURL,
       data,
-      method: MethodOption.POST,
+      method: MethodOption.POST
     });
   },
 
@@ -39,15 +39,18 @@ export const HttpClientService = {
       url,
       baseURL,
       data,
-      method: MethodOption.PUT,
+      method: MethodOption.PUT
     });
   },
-  async get<T>(url: string, options: AxiosRequestConfig = {}): Promise<AxiosResponse<T, any>> {
+  async get<T>(
+    url: string,
+    options: AxiosRequestConfig = {}
+  ): Promise<AxiosResponse<T, any>> {
     return HttpClientService.send<T>({
       ...options,
       url,
       baseURL,
-      method: MethodOption.GET,
+      method: MethodOption.GET
     });
   },
 
@@ -61,7 +64,7 @@ export const HttpClientService = {
       url,
       baseURL,
       data,
-      method: MethodOption.DELETE,
+      method: MethodOption.DELETE
     });
   },
 
@@ -75,14 +78,16 @@ export const HttpClientService = {
       url,
       baseURL,
       data,
-      method: MethodOption.PATCH,
+      method: MethodOption.PATCH
     });
   },
 
-  async send<T>(httpOptions: AxiosRequestConfig): Promise<AxiosResponse<T, any>> {
+  async send<T>(
+    httpOptions: AxiosRequestConfig
+  ): Promise<AxiosResponse<T, any>> {
     httpOptions.headers = {
-      ...httpOptions.headers,
+      ...httpOptions.headers
     };
     return axios(httpOptions);
-  },
+  }
 };

@@ -6,21 +6,30 @@
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended"
   ],
-  "plugins": ["prettier", "react", "react-hooks", "import"],
+  "plugins": ["prettier", "react", "react-hooks", "import", "@typescript-eslint"],
+  "parser": "@typescript-eslint/parser",
   "settings": {
     "import/resolver": {
       "typescript": {
         "alwaysTryTypes": true
+      },
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     }
+  },
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module"
   },
   "rules": {
     //prettier
     "prettier/prettier": ["error", { "singleQuote": true, "trailingComma": "none" }],
-    "jsx-quotes": ["error", "prefer-double"],
+    "jsx-quotes": ["error"],
     
     //import
     "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": ["off", {"devDependencies": true}],
     "import/extensions": [
       "error",
       "ignorePackages",

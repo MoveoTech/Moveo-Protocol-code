@@ -4,7 +4,7 @@ export const formatPrice = (price: number, isoCode = 'ILS'): string => {
   return new Intl.NumberFormat(isoCode, {
     style: 'currency',
     currency: isoCode,
-    maximumFractionDigits: 0,
+    maximumFractionDigits: 0
   }).format(price);
 };
 
