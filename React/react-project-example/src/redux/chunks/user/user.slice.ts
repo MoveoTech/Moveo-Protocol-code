@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getUserEmail } from '../thunks/user.thunk';
 import { UserSlice } from '../../../data/types/userSlice.type';
 
 const initialState: UserSlice = {
@@ -15,7 +14,7 @@ export const userSlice = createSlice({
       state.email = action.payload;
     },
   },
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     // Add reducers for additional action types here, and handle loading state as needed
     builder.addCase(getUserEmail.fulfilled, (state, action) => {
       state.email = action.payload;
