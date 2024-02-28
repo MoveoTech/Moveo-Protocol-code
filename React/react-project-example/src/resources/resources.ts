@@ -1,0 +1,3 @@
+export const CODE_FOR_EXAMPLE = {
+  TEXT: 'THIS IS A SIMPLE CODE'
+};

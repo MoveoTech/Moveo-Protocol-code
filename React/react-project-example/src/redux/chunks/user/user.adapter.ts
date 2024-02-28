@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this */
 import { AxiosResponse } from 'axios';
-import { HttpClientService } from '../../services/HttpClientService';
+import { HttpClientService } from '../../../services/HttpClientService';
 
 const baseUrl = 'https://exampleUrl.com';
 
@@ -17,8 +17,9 @@ class UsersAdapter {
     const response = await HttpClientService.get<string>(
       `${UsersAdapter.endpoint}/email`,
       {
-      headers
-    });
+        headers,
+      },
+    );
     return response;
   }
 }
